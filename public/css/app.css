@@ -517,8 +517,8 @@ mark,
 
 .img-thumbnail {
   padding: 0.25rem;
-  background-color: #f8fafc;
-  border: 1px solid #dee2e6;
+  /*background-color: #f8fafc;*/
+  /*border: 1px solid #dee2e6;*/
   border-radius: 0.25rem;
   max-width: 100%;
   height: auto;
@@ -16526,5 +16526,103 @@ readers do not read off random characters that represent icons */
 
 .fab {
   font-family: "Font Awesome 5 Brands";
+}
+
+body {
+  background-color: #fff;
+}
+
+.simditor-body img {
+  max-width: 100%;
+}
+
+@media only screen and (min-width: 1200px) {
+  .products-4x .product {
+    width: 25%;
+    float: left;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199.98px) {
+  .products-4x .product {
+    width: 25%;
+    float: left;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991.98px) {
+  .products-4x .product {
+    width: 33%;
+    float: left;
+  }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767.98px) {
+  .products-4x .product {
+    width: 50%;
+    float: left;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .products-4x .product {
+    width: 100%;
+    float: left;
+  }
+}
+
+.products .product .thumb img {
+  max-width: 100%;
+}
+
+.product-detail-area .carousel-indicators {
+  position: static;
+  /*display: inline-block;*/
+  margin-top: 15px;
+  justify-content: center;
+  list-style: none;
+  margin-left: 15%;
+  margin-right: 15%;
+  /*z-index: 15;*/
+}
+
+.product-detail-area .carousel-indicators .thumbnail {
+  float: left;
+  height: 82px;
+  width: 82px;
+  text-align: center;
+  margin-right: 10px;
+}
+
+.product-detail-area .carousel-indicators .thumbnail img {
+  height: 80px;
+  vertical-align: middle;
+}
+
+.product-detail-area .carousel-inner .carousel-item {
+  height: 362px;
+  width: 520px;
+  padding: 5px;
+  /*position: absolute;*/
+  text-align: center;
+  display: block;
+  /*border: 1px solid #ced4da;*/
+}
+
+.product-detail-area .carouse-inner .carousel-item img {
+  vertical-align: middle;
+  max-height: 352px;
+  width: auto;
+  border: none;
+}
+
+.product-detail-area .carousel-inner .carousel-item .img-thumbnail {
+  height: 352px;
+  width: auto;
+  border: none;
+  overflow: hidden;
+  /*background-color: none !important;*/
+  /*border: 1px solid #dee2e6;*/
+  border-radius: 0.25rem;
 }
 

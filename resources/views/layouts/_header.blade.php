@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light">
           <div class="container">
-            <a href="#" class="navbar-brand">IOTSCALES BRAND</a>
+            <a href="{{ route('root') }}" class="navbar-brand">IOTSCALES BRAND</a>
 
             <div class="d-flex ml-auto">
                 <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#globalNavbar" aria-controls="globalNavbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,11 +29,14 @@
                 </li>
 
                 <li class="nav-item">
-                  <a class="nav-link" href="">Why buy from us?</a>
+                  <a class="nav-link" href="{{  route('about') }}">Why buy from us?</a>
                 </li>
 
                 <li class="nav-item">
                   <a class="nav-link" href="">Coopearation</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ route('blog.index') }}">Blog</a>
                 </li>
 
             </ul>

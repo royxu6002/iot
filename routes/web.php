@@ -1,6 +1,15 @@
 <?php
 
-Route::get('/', 'PagesController@index')->name('pages.root');
+Route::resource('test','TestController');
+
+Route::get('/', 'PagesController@index')->name('root');
+
+Route::get('about', 'PagesController@about')->name('about');
+
+Route::resource('blog', 'BlogsController');
+
+
+// Route::post('products/upload', 'ProductsController@uploadImage')->name('products.upload_image');
 
 Route::resource('products', 'ProductsController');
 
