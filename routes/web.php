@@ -2,6 +2,17 @@
 
 Route::resource('test','TestController');
 
+Route::get('t', function() {
+    return view('test.test');
+});
+Route::get('t2', function() {
+    return view('test.test2');
+});
+Route::get('vue', function() {
+    return view('test.vue2');
+});
+
+
 Route::get('/', 'PagesController@index')->name('root');
 
 Route::get('about', 'PagesController@about')->name('about');

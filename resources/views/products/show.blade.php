@@ -43,7 +43,7 @@
                     <div class="detail-area">
                         <div class="row">
 
-                            <div class="col-12 col-lg-6">
+                            <div class="col-12 col-lg-6 ">
                                  <div class="delete-product">
                                     <form action=" {{ route('products.destroy', $product) }}" method="post" onsubmit="return confirm('are you sure to delete the item?')">
                                     {{ csrf_field() }}
@@ -70,7 +70,7 @@
                                             </div>
                                         @endforeach
 
-                                 </div>
+                                    </div>
                                 </div>
                             </div>
 
@@ -85,7 +85,7 @@
 
                             </div>
 
-                            <div class="product-tabs col-12 col-lg-6">
+                            <div class="product-tabs align-items-center justify-content-between">
                                     <!-- Nav tabs -->
                                     <ul class="nav" id="myTab" role="tablist">
                                       <li class="nav-item">

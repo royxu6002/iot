@@ -29,11 +29,11 @@
                 </li>
 
                 <li class="nav-item">
-                  <a class="nav-link" href="{{  route('about') }}">Why buy from us?</a>
+                  <a class="nav-link" href="{{  route('about') }}">About</a>
                 </li>
 
                 <li class="nav-item">
-                  <a class="nav-link" href="">Coopearation</a>
+                  <a class="nav-link" href="">Contact Us</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="{{ route('blog.index') }}">Blog</a>

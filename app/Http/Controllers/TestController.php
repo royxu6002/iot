@@ -11,19 +11,15 @@ class TestController extends Controller
 
     public function index()
     {
-        return view('test');
+        return view('test.index');
     }
-
-    public function modelObject()
+    public function show()
     {
-        $data = Product::firstOrFail('id', 1);
-        dd($data);
+        return view('test.show');
     }
 
     public function store(Request $request)
     {
-        dd($request->upload_file);
     }
-
 
 }

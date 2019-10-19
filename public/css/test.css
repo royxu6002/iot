@@ -1,0 +1,54 @@
+body{
+    color: #fff;
+    font-family: 'Helvetica Neue', Arial, Helvetica, Gevena, sans-serif;
+    font-size: 13px;
+}
+
+header{
+    display: block;
+    padding: 10px 0;
+    border-top: 0;
+}
+.container{
+    margin: 0 auto;
+    position: relative;
+    width: 960px;
+    padding: 0;
+}
+header div.container.upper{
+    border-bottom: 1px solid #e8e8e8;
+}
+
+@media only screen and (min-width: 1280px) {
+    .container {
+        width: 1280px;
+        text-align: center;
+    }
+    .container .columns{
+        float: left;
+        display: inline;
+    }
+    .container .seven {
+        margin-left: 200px;
+    }
+    .container .five {
+        float: right;
+    }
+
+}
+
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+    .container {
+        width: 768px;
+    }
+}
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+    .container {
+        width:420px;
+    }
+}
+
+@media only screen and (max-width: 479px) {
+
+}

@@ -1,6 +1,6 @@
 ~(function(win){
 	var htmls = ' <input type="file" name="imgs[]" id="" class="imgFiles" style="display: none" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg" multiple>'+
-				'{{ csrf_field()}} <div class="header col-12 col-md-6">'+
+				' <div class="header col-12 col-md-6">'+
 				'    <span class="imgTitle">'+
 				'        Upload Pictures <b>*</b>'+
 				'    </span>'+
