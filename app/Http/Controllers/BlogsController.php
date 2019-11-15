@@ -29,6 +29,10 @@ class BlogsController extends Controller
 
     public function reply(Request $request)
     {
+        if (!Auth::guard('api')->check()) {
+            return redirect()->route('login');
+        }
+
         Auth::guard('api')->user()->comments()->create([
             'content' => $request->input('content'),
             'blog_id' => $request->input('blog_id'),

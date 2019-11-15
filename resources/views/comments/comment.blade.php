@@ -8,7 +8,8 @@
     {{ $comment->content }}
   </div>
   <div>
-      <a href="#" class="text-small replybox">Reply</a>
+    @include('comments.form')
+    {{-- <a href="#" class="text-small replybox">Reply</a> --}}
   </div>
     @include('comments.replies')
 </li>

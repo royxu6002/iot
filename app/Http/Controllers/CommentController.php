@@ -14,6 +14,12 @@ class CommentController extends Controller
         $this->validate($request, [
             'content' => 'required|min:10',
         ]);
+
+        if(!Auth::guard('api')->check()) {
+            return redirect()->route('login');
+        }
+
+
         if(Auth::guard('api')->check()) {
             Auth::guard('api')->user()->comments()->create([
                 'content' => $request->input('content'),
@@ -22,7 +28,5 @@ class CommentController extends Controller
             ]);
             return back();
         }
-        session()->flash('error', 'please login first');
-        return back();
     }
 }
