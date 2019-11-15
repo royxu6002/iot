@@ -2,12 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Vue project 2 - simple EVAL reply box </title>
+    <title>Vue project - 2 simple EVAL reply box </title>
     <meta name="_token" content="{{ csrf_token() }}"/>
     <meta name="keywords" content="import various components, transmit data from parent to child">
     <meta name="keywords" content="window.confirm() grammar, ${variable}, splice methods, unshift() methods">
 
     <style>
+    body{
+    font-family: 'Helvetica Neue', Arial, Helvetica, Gevena, sans-serif;
+    font-size: 13px;
+}
     body p{
         margin: 0;
         padding: 0;

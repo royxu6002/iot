@@ -26,4 +26,5 @@ class AppServiceProvider extends ServiceProvider
     {
         View::composer('layouts._header', 'App\Http\ViewComposers\CategoryComposer');
     }
+
 }

@@ -7,7 +7,7 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
-Vue.component('App', require('./App.vue').default);
+Vue.prototype.axios = window.axios;
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
 /**
@@ -15,11 +15,5 @@ Vue.component('App', require('./App.vue').default);
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-new Vue({
-    el: '#app',
-    components: {
-        App,
-    },
-    template: '<App>'
-})
+
 

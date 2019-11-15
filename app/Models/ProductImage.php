@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Product;
+use Str;
 
 class ProductImage extends Model
 {
@@ -15,4 +16,18 @@ class ProductImage extends Model
     {
         return $this->belongsTo(Product::class);
     }
+    // public function setProductImageAttributes()
+    // {
+    //     if (Str::startsWith($this->attributes['product_image'], ['http://', 'https://'])) {
+    //         return $this->attributes['product_image'];
+    //     }
+    //     return env('APP_URL').'/'.$this->attributes['product_image'];
+    // }
+    // public function getProductImageAttributes()
+    // {
+    //     if (Str::startsWith($this->attributes['product_image'], ['http://', 'https://'])) {
+    //         return $this->attributes['product_image'];
+    //     }
+    //     return env('APP_URL').'/'.$this->attributes['product_image'];
+    // }
 }

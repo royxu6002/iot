@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>vue project - search filter and sort order</title>
+    <title>vue project - 1 search filter and sort order</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <meta name="keywords1" content="usage of filter(), indexOf()">
     <meta name="keywords2" content="usage of sort(function (p1, p2))">

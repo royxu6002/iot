@@ -1,19 +1,17 @@
-<div class="related-product-area">
-    <div class="heading">
-        <h5>Related Product</h5>
-        <a class="float-right" href="{{ route('products.index') }}">View all</a>
-    </div>
-        <hr>
+<div class="container">
     <div class="row">
-            <div class="products products-4x">
-                @foreach ($relatedProducts as $key=>$product)
-                    <div class="product">
-                        <article>
-                        <div class="thumb img-fluid"><img src="{{ empty($product->images->first())? '':$product->images->first()->product_image }}">
-                        </div>
-                        <h6 class="title text-center"><a href="{{ route('products.show', $product->product_slug) }}">{{ $product->product_name }}</a></h6>
-                    </article>
-                  </div>
-                @endforeach
+        <h3>Related Product</h3>
+        <a class="btn btn-outline-brand btn-sm" href="{{ route('products.index') }}">View All</a>
+    </div>
+    <div class="row" >
+       @foreach ($relatedProducts as $key=>$product)
+            <div class="col-sm-6 col-lg-3 mb-4 text-center" >
+                <a href="{{ route('products.show', $product->product_slug) }}">
+                    <img img src="{{ empty($product->images->first())? '':url($product->images->first()->product_image) }}" class="rounded mb-3">
+                    <p class="mb-1 text-muted">{{ $product->product_name }}</p>
+                </a>
             </div>
+        @endforeach
+    </div>
 </div>
+

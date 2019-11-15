@@ -10,23 +10,71 @@
                 <div class="col-lg-10 offset-1 col-sm-12 col-md-10">
                     <div class="card">
                         <div class="card-header">
-                            Create a blog
+                           {{ $blog->id? 'Update': 'Create'}} a blog
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('blog.store') }}" method="post">
+                            @if(!$blog->id)
+                                <form action="{{ route('blogs.store') }}" method="post" enctype="multipart/form-data">
+                            @else
+                                <form action="{{ route('blogs.update', $blog->title_slug) }}" method="post" enctype="multipart/form-data">
+                                {{method_field('put')}}
+                            @endif
                                {{ csrf_field() }}
-                               @include('shared._errors')
+
+                              {{--  @include('shared._errors') --}}
+
                                 <div class="form-group">
-                                    <input type="text" name="title" placeholder="Title" class="form-control">
+                                    <input type="text" name="title" placeholder="Title" class="form-control @error('title') is-invalid @enderror" value="{{old('title', $blog->title)}}">
+                                    @error('title')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
+
                                 <div class="form-group">
-                                    <input type="text" name="author" placeholder="Author" class="form-control">
+                                    <input name="article_abstract" placeholder="Article abstract"  class="form-control @error('article_abstract') invalid-feedback @enderror" value="{{ old('article_abstract', $blog->article_abstract) }}"
+                                    @error('article_abstract')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{$message}}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
+
+                                <div class="form-group">
+                                    <input type="text" name="author" placeholder="Author" class="form-control @error('author') is-invalid @enderror" value="{{old('author', $blog->author)}}">
+                                    @error('author')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+
                                 <div class="form-group" >
-                                    <textarea name="article" id="editor" class="form-control" rows="10"  required value="{{ old('article') }}">
-                                    </textarea>
+                                    <div id="editormd">
+                                    <textarea name="article" placeholder="Article" class="form-control @error('article') is-invalid @enderror" rows="10">{{ old('article', $blog->article) }}</textarea>
+                                    </div>
+
+                                    @error('article')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+
                                 </div>
-                                <button type="submit">Post</button>
+
+                                <div class="form-group">
+                                    <input type="file" name="thumbnail" class="form-control @error('thumbnail') is-invalid @enderror" value="{{ old('thumbnail', $blog->thumbnail) }}">
+
+                                    @error('thumbnail')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+
+                                <button type="submit" class="btn btn-primary">Post</button>
+
                             </form>
                         </div>
                     </div>
@@ -37,19 +85,19 @@
 @stop
 
 @section('styles')
-    <link rel="stylesheet" href="{{ asset('css/simditor.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('editor/editormd.min.css') }}" type="text/css">
 @stop
 
 @section('scripts')
-    <script type="text/javascript" src="{{ asset('js/module.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/hotkeys.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/uploader.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/simditor.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('editor/editormd.min.js') }}"></script>
     <script>
-        $(document).ready(function() {
-            var editor = new Simditor({
-                textarea: $('#editor'),
-            });
+        var editor = editormd("editormd",{
+            width: "100%",
+            height: 600,
+            path: "/editor/lib/",
+            syncScrolling : "single",
+            saveHTMLToTextarea: true,
         });
+        editor.getHTML();
     </script>
 @stop

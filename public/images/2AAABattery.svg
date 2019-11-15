@@ -1,0 +1,28 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<svg version="1.1" id="图层_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
+<style type="text/css">
+    .st0{fill:#1895D3;}
+    .st1{fill:#FFFFFF;}
+    .st2{font-family:'Hero';}
+    .st3{font-size:32.7143px;}
+    .st4{font-size:39.9381px;}
+    .st5{font-family:'Hero-Light';}
+    .st6{font-size:26.7661px;}
+    .st7{font-size:42.8019px;}
+</style>
+<g>
+    <path id="XMLID_62_" class="st0" d="M128,255.7L128,255.7c70.7,0,128-57.2,128-127.7l0,0C256,57.5,198.7,0.3,128,0.3l0,0
+        C57.3,0.3,0,57.5,0,128l0,0C0,198.5,57.3,255.7,128,255.7z"></path>
+    <text transform="matrix(1.0021 0 0 1 66.3076 175.8042)" class="st1 st2 st3">2 x </text>
+    <text transform="matrix(1.0021 0 0 1 119.9199 175.8042)" class="st1 st2 st3">AAA</text>
+    <text id="XMLID_138_" transform="matrix(1.0021 0 0 1 241.624 198.8901)" class="st1 st2 st4"> </text>
+    <text transform="matrix(1.0021 0 0 1 76.6475 202.5698)" class="st1 st5 st6">Bat</text>
+    <text transform="matrix(1.0021 0 0 1 121.9424 202.5698)" class="st1 st5 st6">t</text>
+    <text transform="matrix(1.0021 0 0 1 131.7632 202.5698)" class="st1 st5 st6">ery</text>
+    <text id="XMLID_136_" transform="matrix(1.0021 0 0 1 200.9912 247.5776)" class="st1 st5 st7"> </text>
+    <text id="XMLID_135_" transform="matrix(1.0021 0 0 1 212.71 247.5776)" class="st1 st5 st7"> </text>
+    <text id="XMLID_134_" transform="matrix(1.0021 0 0 1 62.6475 223.3706)" class="st1 st5 st6">(included)</text>
+    <path id="XMLID_131_" class="st1" d="M103.2,109.9H68.4V91.4H55.9V75h12.6V56.5h34.7V109.9z M60,66.8H47.5v32.9H60v18.5h35.6h105.8
+        V48.3H95.7H60V66.8z"></path>
+</g>
+</svg>

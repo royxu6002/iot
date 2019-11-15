@@ -4,46 +4,39 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Blog;
+use App\Models\Comment;
 use Str;
+use Auth;
 
 class BlogsController extends Controller
 {
     public function index()
     {
-        $blogs = Blog::paginate(12);
-        return view('blogs.index', compact('blogs'));
+        $recommendBlogs = Blog::recommend()->get();
+        $blogs = Blog::with('tags')->orderBy('created_at', 'desc')->paginate(8);
+        return view('blogs.index', compact(['blogs', 'recommendBlogs']));
     }
-    public function create()
-    {
-        return view('blogs.create_and_edit');
-    }
-    public function store(Request $request, Blog $blog)
-    {
-        $this->validate($request, [
-            'title' => 'required|unique:blogs',
-            'article' => 'required|min:10',
-            'author' => 'required',
-            ]);
-        $blog['title_slug'] = Str::slug($request->title);
-        $blog->fill($request->all());
-        $blog->save();
 
-        session()->flash('success', 'one article has been posted');
-
-        return view('blogs.show', compact('blog'));
-
-    }
     public function show(Blog $blog)
     {
-        return view('blogs.show', compact('blog'));
-    }
-    public function update()
-    {
+        $blog->load('comments.oauthUser');
+        $comments = $blog->getComments();
 
-    }
-    public function destroy()
-    {
+        // dd($comments);
 
+        return view('blogs.show', compact('blog', 'comments'));
     }
+
+    public function reply(Request $request)
+    {
+        Auth::guard('api')->user()->comments()->create([
+            'content' => $request->input('content'),
+            'blog_id' => $request->input('blog_id'),
+            'parent_id' => $request->input('parent_id'),
+        ]);
+
+        return back();
+    }
+
 
 }
