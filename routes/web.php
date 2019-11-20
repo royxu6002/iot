@@ -20,7 +20,7 @@ Route::get('blogs/{blog}','BlogsController@show')->name('blogs.show');
 Route::post('comment', 'CommentController@store')->name('comment.post');
 Route::post('reply', 'BlogsController@reply')->name('comment.reply');
 Route::post('enquiry', 'EnquiryController@store')->name('enquiry.store');
-Route::post('subscribe', 'SubscribeController@store')->name('subscribe.store');
+Route::post('subscribe', 'SubscribesController@store')->name('subscribe.store');
 
 Route::resource('tags','TagsController', ['only' => ['show']]);
 

@@ -8,34 +8,17 @@ use Illuminate\Http\Request;
 class SubscribesController extends Controller
 {
 
-    public function subscribe(Request $request)
+    public function store(Request $request)
     {
-        dd($request->all());
+        $this->validate($request, [
+            'email' => ['required', 'unique:subscribes'],
+        ],[
+            'email.unique' => 'You had already subscribed',
+        ]);
+
         Subscribe::create($request->all());
 
-        return [];
+        return back()->with('subscribe-response', 'Thanks, you have suscribed successfully.');
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Subscribe  $subscribe
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Subscribe $subscribe)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Subscribe  $subscribe
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Subscribe $subscribe)
-    {
-        //
-    }
 }

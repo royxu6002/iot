@@ -1,16 +1,40 @@
+    <footer class=" bg-primary-alt">
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col d-flex flex-column align-items-center align-items-md-start">
+            <small class="text-muted mt-2 d-none d-lg-block">© Copyright 2019 Comlibra Electronic Co., LTD.</small>
+          </div>
+          <div class="col-lg-5 col-md-6 mt-3 mt-lg-0">
+            @if(session()->has('subscribe-response'))
+                {{ session('subscribe-response') }}
+            @else
+                <form action="{{ route('subscribe.store') }}" method="post">
+                    @csrf
+                  <div class="form-row flex-column flex-md-row">
+                    <div class="col">
+                      <input type="email" class="form-control mb-2 @error('email') is-invalid @enderror" placeholder="Email Address" name="email" required="">
+                      @error('email')
+                        <div class="invalid-feedback">
+                            {{$message}}
+                        </div>
+                      @enderror
 
-<footer class="navbar-fixed-bottom">
-    <hr>
-    <div class="container">
-        <div class="footer__inner">
-            <div class="footer__item d-lg-flex justify-content-lg-between align-items-lg-center my-4">
-                <ul id="menu-footer" class="nav sub-nav footer__sub-nav">
-                    <li class="menu-item mr-3">© Copyright 2019 Comlibra Electronic Co., LTD.</li>
-                </ul>
-            </div>
+                    </div>
+                    <div class="col-auto">
+                      <button type="submit" class="btn btn-primary btn-loading btn-block">
+                        <span>Subscribe</span>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+                <small class="text-muted form-text">We’ll never share your details.</small>
+            @endif
+          </div>
         </div>
-    </div>
-</footer>
+      </div>
+    </footer>
+
+{{-- back-to-top archor --}}
 <a href="#" class="btn back-to-top btn-primary btn-round aos-init aos-animate" data-smooth-scroll="" data-aos="fade-up" data-aos-offset="2000" data-aos-mirror="true" data-aos-once="false">
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="injected-svg icon" data-src="assets/img/icons/theme/navigation/arrow-up.svg">
         <title>Icon For Arrow-up</title>
@@ -21,3 +45,4 @@
         </g>
     </svg>
 </a>
+{{-- end of back-to-top archor --}}
