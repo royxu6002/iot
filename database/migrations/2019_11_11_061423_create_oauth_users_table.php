@@ -33,8 +33,8 @@ class CreateOauthUsersTable extends Migration
      */
     public function down()
     {
-        Scheme::table('oauth_users', function(Blueprint $table){
-            $table->dropForeign('user_id');
+        Schema::table('oauth_users', function(Blueprint $table){
+            $table->dropForeign(['user_id']);
         });
         Schema::dropIfExists('oauth_users');
     }

@@ -18,7 +18,7 @@
                         <input type="hidden" name="parent_id" value="{{ $comment->id }}">
                         <input type="hidden" name="blog_id" value="{{ $blog->id }}">
                       <div class="form-group">
-                        <textarea name="content" rows="5" class="form-control" required="" @if(Auth::guard('api')->check()) placeholder="Type your reply here"  @else disabled placeholder="Please sign in first to reply the comment."  @endif></textarea>
+                        <textarea name="content" rows="5" class="form-control" required="" @if(Auth::check()) placeholder="Type your reply here"  @else disabled placeholder="Please sign in first to reply the comment."  @endif></textarea>
                       </div>
                       <div class="d-none alert alert-danger" role="alert" data-error-message="">
                         Please fill all fields correctly.
@@ -26,7 +26,7 @@
                       <div class="d-none alert alert-success" role="alert" data-success-message="">
                         Thanks, a member of our team will be in touch shortly.
                       </div>
-                      <button type="submit" class="btn btn-block btn-primary btn-loading" data-loading-text="Sending" @if(Auth::guard('api')->check()) @else disabled @endif>
+                      <button type="submit" class="btn btn-block btn-primary btn-loading" data-loading-text="Sending" @if(Auth::check()) @else disabled @endif>
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="injected-svg icon" data-src="assets/img/icons/theme/code/loading.svg">
                             <title>Icon For Loading</title>
                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">

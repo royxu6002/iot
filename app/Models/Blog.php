@@ -41,7 +41,7 @@ class Blog extends Model
 
     public function getComments()
     {
-        return $this->comments()->with('oauthUser')->orderBy('id','desc')->get()->groupBy('parent_id');
+        return $this->comments()->with('user')->orderBy('id','desc')->get()->groupBy('parent_id');
     }
 
 }

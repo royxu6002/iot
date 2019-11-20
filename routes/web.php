@@ -17,9 +17,10 @@ Route::get('contact', 'PagesController@contact')->name('contact');
 
 Route::get('blogs', 'BlogsController@index')->name('blogs.index');
 Route::get('blogs/{blog}','BlogsController@show')->name('blogs.show');
-// Route::resource('blogs', 'BlogsController', ['only'=>['index', 'show']]);
 Route::post('comment', 'CommentController@store')->name('comment.post');
 Route::post('reply', 'BlogsController@reply')->name('comment.reply');
+Route::post('enquiry', 'EnquiryController@store')->name('enquiry.store');
+Route::post('subscribe', 'SubscribeController@store')->name('subscribe.store');
 
 Route::resource('tags','TagsController', ['only' => ['show']]);
 
@@ -31,3 +32,7 @@ Route::resource('category', 'CategoryController', ['only' => ['create', 'store',
 Auth::routes();
 Route::get('login/{account}', 'OauthUserController@redirectToProvider')->name('login.account');
 Route::get('login/{account}/callback', 'OauthUserController@handleProviderCallback')->name('login.account.callback');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

@@ -7,7 +7,7 @@
         <div class="row py-6 text-center justify-content-center align-items-center">
           <div class="col-xl-8 col-lg-10">
             <h1 class="display-4">Get In Touch</h1>
-            <p class="lead mb-0">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa.</p>
+            <p class="lead mb-0">Thanks, a member of our team will be in touch shortly.<p>
           </div>
         </div>
       </div>
@@ -51,90 +51,102 @@
       <div class="container">
         <div class="row justify-content-around">
           <div class="col-md-7 col-lg-6 mb-3 mb-md-0">
-
+              @if(session()->has('enquiry-response'))
+                  <h5>
+                      {{ session('enquiry-response') }}
+                  </h5>
+              @else
             <div class="text-center mb-4">
               <h2 class="h1">Leave a message</h2>
-              <p class="lead">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
+              <p class="lead">Please specify your needs so that our professional team could work with.
               </p>
             </div>
-            <form action="https://mailform.mediumra.re/leap/smtp.php" data-form-email="" novalidate="">
+
+            <form action="{{ route('enquiry.store') }}" method="post">
+                @csrf
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
                     <label>Your Name *</label>
-                    <input name="contact-name" type="text" class="form-control" required="">
+                    <input name="name" type="text" class="form-control @error('name') is-invalid @enderror" required>
+                    @error('name')
                     <div class="invalid-feedback">
-                      Please type your name.
+                     {{ $message }}
                     </div>
+                    @enderror
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label>Email Address *</label>
-                    <input name="contact-email" type="email" placeholder="you@yoursite.com" class="form-control" required="">
+                    <input name="email" type="email" placeholder="you@yoursite.com" class="form-control @error('email') is-invalid @enderror" required>
+                    @error('email')
+                        <div class="invalid-feedback">
+                         {{ $message }}
+                        </div>
+                    @enderror
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label>Company Name</label>
-                    <input name="contact-company" type="text" class="form-control" required="">
+                    <input name="company" type="text" class="form-control @error('company') is-invalid @enderror" required>
+                    @error('company')
+                        <div class="invalid-feedback">
+                         {{ $message }}
+                        </div>
+                    @enderror
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label>Contact Number</label>
-                    <input name="contact-phone" type="tel" class="form-control" required="">
+                    <input name="phone" type="tel" class="form-control @error('phone') is-invalid @enderror" required>
+                    @error('phone')
+                        <div class="invalid-feedback">
+                         {{ $message }}
+                        </div>
+                    @enderror
                   </div>
                 </div>
                 <div class="col-12">
                   <div class="form-group">
                     <label>Message:</label>
-                    <textarea class="form-control" name="contact-message" rows="10" placeholder="How can we help?"></textarea>
+                    <textarea class="form-control @error('enquiry') is-invalid @enderror" name="enquiry" rows="10" placeholder="How can we help?"></textarea>
+                    @error('enquiry')
+                        <div class="invalid-feedback">
+                         {{ $message }}
+                        </div>
+                    @enderror
                   </div>
-                </div>
-                <div class="col-12">
-                  <div data-recaptcha="" data-sitekey="6Lfmz4gUAAAAAEau9IKfGA7leOKYAiRhv-3WA3gq"></div>
                 </div>
                 <div class="col">
-                  <div class="d-none alert alert-success" role="alert" data-success-message="">
-                    Thanks, a member of our team will be in touch shortly.
-                  </div>
-                  <div class="d-none alert alert-danger" role="alert" data-error-message="">
-                    Please fill all fields correctly.
-                  </div>
                   <button type="submit" class="btn btn-primary btn-loading" data-loading-text="Sending">
-                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="injected-svg icon" data-src="assets/img/icons/theme/code/loading.svg">
-            <title>Icon For Loading</title>
-        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g>
-            <polygon points="0 0 24 0 24 24 0 24" opacity="0"></polygon>
-        </g>
-        <path d="M12,4 L12,6 C8.6862915,6 6,8.6862915 6,12 C6,15.3137085 8.6862915,18 12,18 C15.3137085,18 18,15.3137085 18,12 C18,10.9603196 17.7360885,9.96126435 17.2402578,9.07513926 L18.9856052,8.09853149 C19.6473536,9.28117708 20,10.6161442 20,12 C20,16.418278 16.418278,20 12,20 C7.581722,20 4,16.418278 4,12 C4,7.581722 7.581722,4 12,4 Z" fill="#000000" fill-rule="nonzero" transform="translate(12.000000, 12.000000) scale(-1, 1) translate(-12.000000, -12.000000) "></path>
-    </g>
-</svg>
                     <span>Send Enquiry</span>
                   </button>
                 </div>
               </div>
             </form>
+            @endif
           </div>
+
           <div class="col-md-4 col-lg-3">
-            <h2>New York</h2>
+            <h2>Hangzhou</h2>
             <div class="mb-3">
               <h6 class="mb-1">Address</h6>
               <address>
-                389 Greenpoint Ave
-                <br>Crown Heights, Brooklyn
-                <br>New York
+                Room 2112, Xiaoshan Baolong Square
+                <br>Hangzhou
+                <br>311215
               </address>
             </div>
             <div class="mb-3">
               <h6 class="mb-1">Phone</h6>
-              <span>+61 4723 3827</span>
+              <span>+86 182 5819 4466</span>
             </div>
             <div class="mb-3">
               <h6 class="mb-1">Email</h6>
-              <a href="#">ny@companyname.io</a>
+              <a href="mailto:info@comlibra.com">info@comlibra.com</a>
             </div>
           </div>
         </div>

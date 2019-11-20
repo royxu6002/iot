@@ -16,4 +16,7 @@ Route::group([
     $router->resource('/categories', 'CategoriesController');
     $router->resource('/blogs', 'BlogsController');
     $router->resource('/tags', 'TagsController');
+    $router->resource('/comment', 'CommentController');
+    $router->resource('/subscribe', 'SubscribeController');
+    $router->resource('/enquiry', 'EnquiryController');
 });

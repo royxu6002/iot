@@ -52,9 +52,9 @@
                                       </div>
                                       <span class="opacity-70">{{ $blog->created_at->diffForHumans() }}</span>
                                     </div>
-                                    <span class="badge bg-primary-alt text-primary">
+                                   {{--  <span class="badge bg-primary-alt text-primary">
                                         <img src="{{ asset('images/like.svg') }}" width="24" height="24" viewBox="0 0 24 24" fill="none"> {{ $blog->like }}
-                                    </span>
+                                    </span> --}}
                                 </div>
                                 <a href="{{ route('blogs.show', $blog->title_slug) }}">
                                     <h4>{{ $blog->title }}</h4>

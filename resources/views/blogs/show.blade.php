@@ -62,7 +62,7 @@
       <div class="container pt-3">
         <div class="row justify-content-center">
           <div class="col-xl-9 col-lg-10 col-md-8">
-            <hr>
+            {{-- <hr>
             <div class="d-flex align-items-center">
               <span class="text-small mr-1">like this article:</span>
               <div class="d-flex mx-2">
@@ -70,7 +70,7 @@
                   <img src="{{asset('images/like.svg')}}" alt="">
                 </a>
               </div>
-            </div>
+            </div> --}}
             <hr>
             @if($comments->count())
                 <h5 class="my-4">Total {{ $comments[0]->count() }} Comments</h5>
@@ -91,7 +91,7 @@
               @csrf
               <div class="form-group">
                 <textarea class="form-control" name="content" rows="7"
-                @if(Auth::guard('api')->check())
+                @if(Auth::check())
                     placeholder="Comment"
                     @else disabled placeholder="Please sign in to comment"
                     @endif></textarea>
@@ -101,7 +101,7 @@
                   <input type="checkbox" class="custom-control-input" id="comment-form-opt-in">
                   <label class="custom-control-label text-small" for="comment-form-opt-in">Notify me when someone replies</label>
                 </div> --}}
-                @if(Auth::guard('api')->check())
+                @if(Auth::check())
                 <button class="btn btn-primary" type="submit" >Submit</button>
                 @else
                 <button class="btn btn-primary" type="submit" disabled>Submit</button>

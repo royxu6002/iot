@@ -9,7 +9,7 @@ class Subscribe extends Model
     protected $fillable = ['email'];
 
     protected $casts = [
-        'subscribe_status' => boolean;
+        'subscribe_status' => 'boolean',
     ];
 
 }

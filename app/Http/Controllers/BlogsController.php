@@ -19,21 +19,19 @@ class BlogsController extends Controller
 
     public function show(Blog $blog)
     {
-        $blog->load('comments.oauthUser');
+        $blog->load('comments.user');
         $comments = $blog->getComments();
-
-        // dd($comments);
 
         return view('blogs.show', compact('blog', 'comments'));
     }
 
     public function reply(Request $request)
     {
-        if (!Auth::guard('api')->check()) {
+        if (!Auth::check()) {
             return redirect()->route('login');
         }
 
-        Auth::guard('api')->user()->comments()->create([
+        Auth::user()->comments()->create([
             'content' => $request->input('content'),
             'blog_id' => $request->input('blog_id'),
             'parent_id' => $request->input('parent_id'),

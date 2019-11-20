@@ -15,13 +15,13 @@ class CommentController extends Controller
             'content' => 'required|min:10',
         ]);
 
-        if(!Auth::guard('api')->check()) {
+        if(!Auth::check()) {
             return redirect()->route('login');
         }
 
 
-        if(Auth::guard('api')->check()) {
-            Auth::guard('api')->user()->comments()->create([
+        if(Auth::check()) {
+            Auth::user()->comments()->create([
                 'content' => $request->input('content'),
                 'blog_id' => $request->input('blog_id'),
                 'parent_id' => 0,

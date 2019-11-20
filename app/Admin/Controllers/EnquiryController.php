@@ -2,29 +2,20 @@
 
 namespace App\Admin\Controllers;
 
-use App\Models\User;
+use App\Models\Enquiry;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
-use Encore\Admin\Layout\Content;
 
-class UserController extends AdminController
+class EnquiryController extends AdminController
 {
     /**
      * Title for current resource.
      *
      * @var string
      */
-    protected $title = 'App\Models\User';
-
-
-    public function index(Content $content)
-    {
-        return $content->header('User Index')
-            ->description('users list')
-            ->body($this->grid());
-    }
+    protected $title = 'App\Models\Enquiry';
 
     /**
      * Make a grid builder.
@@ -33,12 +24,14 @@ class UserController extends AdminController
      */
     protected function grid()
     {
-        $grid = new Grid(new User);
+        $grid = new Grid(new Enquiry);
 
         $grid->column('id', __('Id'));
         $grid->column('name', __('Name'));
         $grid->column('email', __('Email'));
-        $grid->column('email_verified_at', __('Email verified at'));
+        $grid->column('company', __('Company'));
+        $grid->column('phone', __('Phone'));
+        $grid->column('enquiry', __('Enquiry'));
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
 
@@ -53,14 +46,14 @@ class UserController extends AdminController
      */
     protected function detail($id)
     {
-        $show = new Show(User::findOrFail($id));
+        $show = new Show(Enquiry::findOrFail($id));
 
         $show->field('id', __('Id'));
         $show->field('name', __('Name'));
         $show->field('email', __('Email'));
-        $show->field('email_verified_at', __('Email verified at'));
-        $show->field('password', __('Password'));
-        $show->field('remember_token', __('Remember token'));
+        $show->field('company', __('Company'));
+        $show->field('phone', __('Phone'));
+        $show->field('enquiry', __('Enquiry'));
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
 
@@ -74,13 +67,13 @@ class UserController extends AdminController
      */
     protected function form()
     {
-        $form = new Form(new User);
+        $form = new Form(new Enquiry);
 
         $form->text('name', __('Name'));
         $form->email('email', __('Email'));
-        $form->datetime('email_verified_at', __('Email verified at'))->default(date('Y-m-d H:i:s'));
-        $form->password('password', __('Password'));
-        $form->text('remember_token', __('Remember token'));
+        $form->text('company', __('Company'));
+        $form->mobile('phone', __('Phone'));
+        $form->textarea('enquiry', __('Enquiry'));
 
         return $form;
     }

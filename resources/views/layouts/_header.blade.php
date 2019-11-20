@@ -51,7 +51,7 @@
             </ul>
 
             <ul class="navbar-nav d-none d-lg-flex ml-2 order-3">
-                @if(Auth::guard('api')->check())
+                @if(Auth::check())
                     <li class="nav-item dropdown">
                       <a class="nav-link nav-link--user dropdown-toggle" id="userProfile" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                             <div class="nav-link--user__initials">
