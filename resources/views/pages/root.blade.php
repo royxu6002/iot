@@ -24,7 +24,7 @@
           <div class="col-lg-6 mt-5">
             <div class="row justify-content-center mb-5">
               <div class="col-lg-12 col-11 mt-4 mt-lg-0">
-                <img style="max-width: 100%; border-radius: 30px;" src="http://comlibra.com/wp-content/uploads/2018/07/BMI.jpg" alt="Image" data-aos="fade-left" class="aos-init aos-animate">
+                <img style="max-width: 100%; border-radius: 30px;" src="{{asset('images/BMI.jpg')}}" alt="Image" data-aos="fade-left" class="aos-init aos-animate">
               </div>
             </div>
 

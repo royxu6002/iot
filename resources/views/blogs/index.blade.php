@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Blogs from Royxu')
+@section('title', 'Blogs from Comlibra Electronic')
 
 @section('content')
  @if(count($recommendBlogs)>0)

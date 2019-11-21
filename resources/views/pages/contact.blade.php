@@ -2,7 +2,7 @@
 @section('title', 'Contact us')
 
 @section('content')
-<section class="bg-primary-alt header-inner o-hidden">
+<section class="header-inner o-hidden" style="background-color: rgba(11,196,131,0.79);">
       <div class="container layer-2 position-relative">
         <div class="row py-6 text-center justify-content-center align-items-center">
           <div class="col-xl-8 col-lg-10">
@@ -61,7 +61,7 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label>Email Address *</label>
-                    <input name="email" type="email" placeholder="you@yoursite.com" class="form-control" required>
+                    <input name="email" type="email" placeholder="you@yoursite.com" class="form-control " required>
                   </div>
                 </div>
                 <div class="col-md-6">

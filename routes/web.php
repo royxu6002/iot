@@ -1,8 +1,8 @@
 <?php
 
 // test new layout for masonary
-Route::get('test',function(){
-    return view('pages.test');
+Route::get('app-kitchen-scale',function(){
+    return view('pages.root2');
 });
 Route::get('vue', function() {
     return view('test.axios');

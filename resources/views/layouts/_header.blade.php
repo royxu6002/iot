@@ -59,11 +59,11 @@
                             </div>
                       </a>
                       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userProfile">
-                        <a class="dropdown-item" href="https://themes.getbootstrap.com/my-account/edit-account/">Account
-                        </a>
-                        <div class="dropdown-divider">
+                        {{-- <a class="dropdown-item" href="https://themes.getbootstrap.com/my-account/edit-account/">Account
+                        </a> --}}
+                        {{-- <div class="dropdown-divider"> --}}
 
-                        </div>
+                        {{-- </div> --}}
                         <a href="" class="dropdown-item">
                             <form action="{{route('logout')}}" method="post">
                                 @csrf
