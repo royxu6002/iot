@@ -1,7 +1,11 @@
 <div class="container">
-    <div class="row">
-        <h3>Related Product</h3>
-        <a class="btn btn-outline-brand btn-sm" href="{{ route('products.index') }}">View All</a>
+    <div class="row align-content-center">
+        <div class="align-items-left">
+            <h3>Related Product</h3>
+        </div>
+        <div class="ml-2">
+            <a class="badge badge-primary" href="{{ route('products.index') }}" style="float: right">View All</a>
+        </div>
     </div>
     <div class="row" >
        @foreach ($relatedProducts as $key=>$product)

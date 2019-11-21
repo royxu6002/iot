@@ -10,11 +10,11 @@
               Provides you with a detailed body weight and BMI including graphical statistics on your body weight improvements. When connecting your body weight scale, the App will receive data sent from scale and continuously record on your App.
             </p>
             <div class="d-flex justify-content-center my-2 my-md-4">
-              <a href="#" class="btn btn-md btn-primary mx-sm-2 mb-3 mb-sm-0 mr-3">
+              <a href="https://apps.apple.com/us/app/okok-international/id1028294311" class="btn btn-md btn-primary mx-sm-2 mb-3 mb-sm-0 mr-3">
                 <img src="{{asset('images/apple.svg')}}" alt="" class="injected-svg icon">
                 <span>App Store</span>
               </a>
-              <a href="#" class="btn btn-md btn-primary mx-sm-2 mb-3 mb-sm-0">
+              <a href="https://play.google.com/store/apps/details?id=com.chipsea.btcontrol.en&hl=en" class="btn btn-md btn-primary mx-sm-2 mb-3 mb-sm-0">
                 <img src="{{asset('images/google.svg')}}" alt="" class="injected-svg icon">
                 <span>Google Play</span>
               </a>
@@ -88,7 +88,7 @@
           <div class="col-xl-8 col-lg-9">
             <h2 class="display-4 mx-xl-6">Take a closer look</h2>
             <p class="lead">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa.
+              Get a general look of our app or you may down the app for a evaluation.
             </p>
           </div>
         </div>

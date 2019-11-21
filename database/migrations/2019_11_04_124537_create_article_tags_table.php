@@ -30,7 +30,8 @@ class CreateArticleTagsTable extends Migration
     public function down()
     {
         Schema::table('article_tags', function (Blueprint $table){
-            $table->dropForeign(['article_id', 'tag_id']);
+            $table->dropForeign(['article_id']);
+            $table->dropForeign(['tag_id']);
         });
         Schema::dropIfExists('article_tags');
     }
