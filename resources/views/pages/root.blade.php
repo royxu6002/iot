@@ -1,3 +1,4 @@
+{{  }}
 @extends('layouts.app')
 
 @section('content')
@@ -35,28 +36,28 @@
           <div class="d-flex flex-column" style="color: white">
             <div class="row mb-5">
               <div class="col-md-3 col-6">
-                <img src="{{asset('images/health.svg')}}" alt="" width="80px" height="80px" class="injected-svg icon icon-lg">
+                <img src="{{asset('images/Health.svg')}}" alt="" width="80px" height="80px" class="injected-svg icon icon-lg">
                 <p class="mt-2">
                   Weighing yourself to keep track.
                 </p>
               </div>
 
               <div class="col-md-3 col-6">
-                <img src="{{asset('images/connection.svg')}}" alt=""  width="80px" height="80px" viewBox="0 0 24 24" version="1.1" class="injected-svg icon icon-lg">
+                <img src="{{asset('images/Connection.svg')}}" alt=""  width="80px" height="80px" viewBox="0 0 24 24" version="1.1" class="injected-svg icon icon-lg">
                 <p class="mt-2">
                   Connection to the smartphone and tablet app.
                 </p>
               </div>
 
               <div class="col-md-3 col-6">
-                <img src="{{asset('images/bmi.svg')}}" alt=""  width="80px" height="80px" class="injected-svg icon icon-lg">
+                <img src="{{asset('images/BMI.svg')}}" alt=""  width="80px" height="80px" class="injected-svg icon icon-lg">
                 <p class="mt-2">
                   This BMI calculator is ideally suited as a protocol for dieting, losing weight, muscle building and weight gain.
                 </p>
               </div>
 
                <div class="col-md-3 col-6">
-                <img src="{{asset('images/lifestyle.svg')}}" alt=""  width="80px" height="80px" class="injected-svg icon icon-lg">
+                <img src="{{asset('images/LifeStyle.svg')}}" alt=""  width="80px" height="80px" class="injected-svg icon icon-lg">
                 <p class="mt-2">
                   The perfect companion  for dieting and losing weight.
                 </p>

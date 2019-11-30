@@ -1,14 +1,13 @@
 <?php
 
+// test folder & vue-book folder
 // test new layout for masonary
-Route::get('app-kitchen-scale',function(){
-    return view('pages.root2');
-});
+// Route::get('app-kitchen-scale',function(){
+//     return view('pages.root2');
+// });
 Route::get('vue', function() {
-    return view('test.axios');
+    return view('vue.interval');
 });
-
-
 
 Route::get('/', 'PagesController@index')->name('root');
 Route::post('/', 'ProductsController@search')->name('products.search');

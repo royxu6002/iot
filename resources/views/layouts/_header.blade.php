@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light">
           <div class="container">
             <a href="{{ route('root') }}" class="navbar-brand ml-3">
-                <img src="http://iot.test/images/logo.svg" width="80">
+                <img src="{{asset('images/logo.svg')}}" width="80">
             </a>
 
             <div class="d-flex">
@@ -30,7 +30,7 @@
                   <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     @if(isset($category))
                         @foreach($category as $key=>$category_name)
-                            <a class="dropdown-item" href="{{ url('/category/'.$category_name->category_slug) }}">{{ $category_name->category_name }}</a>
+                            <a class="dropdown-item" href="{{ asset('/category/'.$category_name->category_slug) }}">{{ $category_name->category_name }}</a>
                         @endforeach
                     @endif
                   </div>
