@@ -14,7 +14,7 @@
         @yield('content')
         @include('layouts._footer')
     </main>
-    <script src="{{ mix('js/app.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/isotope.pkgd.min.js') }}"></script>
     <script src="{{ asset('js/flickity.pkgd.min.js') }}"></script>
     <script src="{{ asset('js/aos.js') }}"></script>
