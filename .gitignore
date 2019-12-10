@@ -12,4 +12,5 @@ npm-debug.log
 yarn-error.log
 /DOC
 /resources/views/test
+/resources/views/vue
 /resources/views/vue-book

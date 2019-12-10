@@ -21,6 +21,7 @@ class ProductsController extends Controller
     {
         $products = Product::with('images')->paginate(12);
 
+        dd(json_encode($products, JSON_PRETTY_PRINT));
         return view('products.index', compact('products'));
     }
 

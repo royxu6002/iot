@@ -104,6 +104,9 @@ class ProductsController extends AdminController
             $form->image('product_image')->uniqueName()->move('/images');
         });
         $form->textarea('product_brief_intro', __('Product brief intro'));
+        // $form->hasMany('product_sku', 'SKUs', function (Form\NestedForm $form) {
+        //     $form->
+        // });
 
         return $form;
     }

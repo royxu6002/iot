@@ -62,13 +62,13 @@
             <p class="mt-3">e.g. 调用了 vm.package1 = vm.package1.filter(function(item){ return ...}) </p>
         </div>
         <div data-chapter="chapter-5.4">
-            <h6>方法与事件</h6>
+            <h2>方法与事件</h2>
             <p class="mt-3">e.g. 点击次数@{{ count }}</p>
             <button @click="count ++">+1</button>
             <button @click="handleAdd()">+1</button>
             <button @click="handleAdd(10)">+10</button>
             <p>Vue 提供了一个特殊的变量 $event, 用于原生访问 DOM 事件</p>
-            <h6>阻止链接打开</h6>
+            <h2>阻止链接打开</h2>
             <a href="http://comlibra.com" @click="handleClick('禁止打开 preventDefault()', $event)">打开链接</a>
         </div>
         <div data-chapter="chapter-5.4.2" class="mt-3">
@@ -84,7 +84,7 @@
         </div>
         <hr>
         <div data-chapter="chapter-6" class="mt-3">
-            <h6>表单与 v-model</h6>
+            <h2>表单与 v-model</h2>
             <div data-chapter="chapter-6.1">
                 <p>@input Vue 实时更新 (拼音阶段也支持)</p>
                 <input type="text" @input="handleInput" placeholder="输入...">
@@ -92,7 +92,7 @@
             </div>
         </div>
         <div data-chapter="chapter-7" class="mt-3">
-            <h6>组件详解</h6>
+            <h2>组件详解</h2>
             <div data-chapter="chapter-7.1">
                 <my-component></my-component>
                 <p>复用组件: Javascript 对象是引用关系, 如果 return 出的对象引用了外部的一个对象, 这个对象是共享的, 任何一个修改都会同步.
@@ -108,7 +108,7 @@
                 <p>点击三个按钮互不影响了, 完全达到复用的目的.</p>
             </div>
             <div data-chapter="chapter-7.2">
-                <h6>使用 props 传递数据</h6>
+                <h2>使用 props 传递数据</h2>
                 <p>组件不仅仅是把模版的内容进行复用, 更重要的组件间要进行通信. 通常父组件的模版中包含子组件, 父组件要正向地向子组件传递数据或参数, 子组件接受到后根据参数的不同来渲染不同的内容或执行操作. 这个正向传递数据的过程就是通过 props 来实现的</p>
                 <p>在组件中, 使用选项 props 来声明需要从父级接受的数据, props 的值可以是两种, 一种是字符串数组, 一种是对象</p>
                 <span>数组用法, 比如我们构造一个数组, 接受一个来自父级的数据message, 并把它在组件模版中渲染. 示例代码如下:</span>
@@ -126,21 +126,21 @@
                 <p>同一个组件使用了两次, 第一个传递的是字符串, 第二个传递的是数组</p>
             </div>
             <div data-chapter="chapter-7.2.2">
-                <h6>单向数据流</h6>
+                <h2>单向数据流</h2>
                 <p>业务中遇到两种需要改变props值的情况, 一是父组件传递初始值, 子组件将它作为初始值保存, 在自己的作用域下可以随意更改和使用. 这种情况可以在组件 data 内再声明一个数据, 引用父组件的 prop, 示例代码如下:</p>
                 <count-component :initial-count="1"></count-component>
                 另一种是 prop 作为需要被转变的原始值传入, 这种情况使用计算属性, 示例代码如下:
                 <style-component :width="100"></style-component>
             </div>
             <div data-chapter="chapter-7.2.3">
-                <h6>数据验证</h6>
+                <h2>数据验证</h2>
                 <p>上面所介绍的 props 选项的值都是数组, 下面将 props 改成对象, 需要用对象的写法 </p>
                 <p>一般将你的组件需要提供给别人使用时, 推荐进行数据验证. 比如某个数据必须是数字类型, 如果传入的是字符串, 就会在控制台弹出警告. 示例:</p>
             </div>
             <div data-chapter="chapter-7.3">
-                <h5>组件通信</h5>
+                <h1 align="center">组件通信</h1>
                 <div data-chapter="chapter-7.3.1">
-                    <h6>自定义事件</h6>
+                    <h2>自定义事件</h2>
                     <p>当子组件需要向父组件传递数据时, 就要用到自定义事件. v-on 除了监听 DOM 事件外, 还可以用于组件之间的自定义事件.</p>
                     <p>Javascript 的设计模式, dispatchEvent 和 addEventListener 这两种方法. Vue 组件也有与之类似的一套模式, 子组件 $emit 来触发事件, 父组件用 $on 来监听子组件的事件</p>
                     <p>父组件也可以直接在子组件的标签上使用 v-on 来监听子组件触发的自定义事件, 示例代码如下:</p>
@@ -152,7 +152,7 @@
                     <p>除了用 v-on 在组件上监听自定义事件外, 也可以监听 DOM 事件, 这是可以用 .native 修饰符表示监听的是一个原生事件, 监听的是该组件的根元素, v-on:click.native="handleClick"</p>
                 </div>
                 <div data-chapter="chapter-7.3.2">
-                    <h6>使用 v-model </h6>
+                    <h2>使用 v-model </h2>
                     <p>Vue 2.x 可以在自定义的组件上使用 v-model 指令, 示例如下:</p>
                     <p>总数是 @{{ total }}</p>
                     <model-component v-model="total"></model-component>
@@ -164,7 +164,7 @@
                     <p><i>实现这样一个具有双向绑定的 v-model 组件要满足下面的两个条件: 1, 接受一个 value 属性, 2, 在有新的 value 时触发 input 事件.</i></p>
                 </div>
                 <div data-chapter="chapter-7.3.3">
-                    <h6>非父子组件通信</h6>
+                    <h2>非父子组件通信</h2>
                     <p>非父子组件一般有两种: 兄弟组件和跨多级组件</p>
                     <p>在 Vue 2.x中, 推荐使用一个空的 Vue 实例作为中间总线 bus, 也就是一个中介. 示例:</p>
                     @{{ message }}
@@ -174,19 +174,20 @@
                     <p>除了中央事件总线 bus 外, 还有两种方法可以实现组件间通信: 父链和子组件索引.</p>
                 </div>
                 <div data-chapter="chapter-7.4.3">
-                    <h6>slot 用法</h6>
+                    <h2>slot 用法</h2>
                     <p>在组件内使用特殊的 <slog> 元素可以为这个子组件开启一个插槽 slot, 在父组件模版里, 插入在子组件标签内的所有内容将替代子组件的 <slot> 标签及它的内容. 示例代码如下:</p>
                     <child-component>
                         <p>来自父组件的消息</p>
                     </child-component>
-                    <h6>具名 slot</h6>
+
+                    <h2>具名 slot</h2>
                     <p>给 slot 元素指定一个 name 后可以分发多个内容, 具名 slot 可以与单个 slot 共存, 如:</p>
                     <main-component>
                         <h2 slot="header">标题</h2>
                         <p>正文内容</p>
                         <div slot="footer">底部信息</div>
                     </main-component>
-                    <h6 class="mt-3">作用域插槽</h6>
+                    <h2 class="mt-3">作用域插槽</h2>
                     <p>是一种特殊的 slot, 使用一个可以复用的模版替换已渲染元素. 如:</p>
                     <area-component>
                         <template scope="props">
@@ -203,53 +204,306 @@
                             </template>
                         </my-list>
                 </div>
+                <div data-date="date-1208">
+                    <p>实际项目开发中, 时常会把父组件的内容与子组件自己的模版混合起来使用, 这个过程在 vue 中称为内容分发 (transclusion), 也常常称为 slot.</p>
+
+                </div>
             </div>
 
         </div>
         <div data-date="date-1203" data-chapter="chapter-9">
-            <h5>Render 函数</h5>
+            <h1 align="center">Render 函数</h1>
         </div>
         <hr>
-        <div data-date="date-1204" data-chapter="chapter-11.2">
-            <h6>Vuex 与状态管理</h6>
-            <p> store 包含了应用的数据(状态)和操作过程, 数据保存在 Vuex 选项的 state 字段内, 比如, 定义一个数据 count, 初始值为0: </p>
-            const store = new Vuex.Store({
-                state: {
-                    count: 0,
-                },
-            });
-            <p>在任何组件内, 可以通过 $store.state.count 读取.</p>
-            <p>在组件内, 来自 store 的数据只能读取, 不能手动修改, 改变 store 中数据唯一的途径就是显式地提交 mutations. Mutations 是 Vuex 的第二个选项, 用来直接修改 state 里的数据. </p>
-            const store = new Vuex.Store({
-                state: {
-                    count: 0,
-                },
-                mutations: {
-                    increment (state) {
-                        state.count ++;
-                    },
-                    decrease (state) {
-                        state.count --;
-                    },
-                },
-            });
-            <p>在组件内, 通过 this.$store.commit 方法来执行 mutations, 这看起来像 Javascript 的观察者模式, 组件只负责提交事件名, Vuex 对应的 mutations 完成业务逻辑.</p>
-            <p>mutations 还可以接受第二个参数, 可以使数字, 字符串, 或对象等类型.</p>
-            mutations: {
-               increment(state, n) {
-               n = n ||1
-               state.count +=n;
-               }
-            }
-            <p>组件中使用时, 当一个参数不够用时, 可以传入一个对象, 无限扩展.</p>
-            <p>提交 mutations 的另一种方式是直接使用包含 type 属性的对象, 在 index.vue 组件中,</p>
-            this.$store.commit({ type: 'increment', count =10 });
-            <p>Vuex 还有3个选项可以使用: getters, actions, modules</p>
+
+        <div data-date="1207" data-chapter="chapter-11">
+            <h1 align="center">插件</h1>
+            <h2>vue-router 的基本用法</h2>
+            <p>Routers 里的每一项 path 属性就是指定当前匹配的路径, component 是映射的组件.
+                component: (resolve) => require(./views/about.vue) 这种写法, webpack 会把每个路由都打包为一个 js 文件, 在请求该页面时, 才去加载这个页面的 js, 也就是异步事先的懒加载 (按需加载)
+            </p>
+            <p>component: require(./views/about.vue) 这样写, 再打开首页时候, 是一次性加载.</p>
+            <p>使用一次性路由后, 编译出的每个页面的 js 文件都叫做 chunk(块), 默认命名是 o.main.js, 1.main.js...可以在 webpack 配置的出口 output 里通过设置 chunkFilename 字段修改 chunk 命名:</p>
+            <pre>
+                output: {
+                    publicPath: '/dist',
+                    filename: '[name].js',
+                    chunkFilename: '[name].chunk.js'
+                }
+            </pre>
+
+            <p>有了 chunk 后, 在每个页面 (.vue 文件)里写的样式也需要配置后才会打包进 main.css, 否则仍然会通过 javascript 动态创建 style 标签的形式写入. 配置插件:</p>
+            <p>在 webpack.config.js 文件中
+            <pre>
+                plugins: {
+                    new ExtractTextPlugin({
+                        filename: '[name].css',
+                        allChunks: true
+                    })
+                }
+            </pre>
+            </p>
+            <p>开启 history 路由, 在生产环境时服务端必须进行配置, 将所有路由指向同一个 html, webpack-dev-server 也要配置下来支持 history 路由, 在package.json 中修改 dev 命令:</p>
+            <pre>
+                "scripts": {
+                    "dev": "webpack-dev-server --open --history-api-fallback --config webpack.config.js"
+                }
+            </pre>
+            <p>增加了 --history-api-fallback, 所有的路由都会指向 index.html</p>
+            <p>跳转页面时候如果在 javascript 进行, this.$router.push('')</p>
+            <p>$router 还有其他方法: replace 方法
+                this.$router.replace, 类似于 <router-link> 的 replace 功能, 它不会向 history 添加新纪录, 而是替换掉当前的 histroy 记录, 如 this.$router.replace('')</p>
+                <p>go 方法</p>
+                <p>类似于 window.history.go(), 在 history 记录中向前或向后退多少步, 参数是整数. 如: this.$router.go(-1), this.$router.go(2)</p>
+                <span><strong>router 高级用法</strong></span>
+                <p> SPA 项目中, 如何修改网页的标题, vue-router 提供了导航钩子 beforeEach 和 afterEach, 它们会在路由即将改变前和改变后触发,</p>
+                <pre>
+                    router.beforeEach (to,from,next) => {
+                        window.document.title = to.meta.title
+                        next ()
+                    }
+                </pre>
+                <span>如果一个页面较长, 滚动到某个位置, 再跳转到另一页面, 滚动条默认实在上一页面停留的位置, 好的体验是停留在页面顶端, 通过 afterEach 可以实现:</span>
+                <pre>
+                    router.afterEach(to,from,next) => {
+                        window.scrollTo(0,0)
+                    }
+                </pre>
+                <p>从一个页面过渡到另一页面, 出现一个全局的 Loading 动画, 页面加载完成后结束动画.</p>
+                <p>next() 方法还可以设置参数, 比如某些页面需要校验是否登录, 如果登录了就可以访问, 否则跳转到登录页. 通过 localStorage 简易判断, 如下:</p>
+                <pre>
+                    router.beforeEach(to,from,next) => {
+                        if (window.localStorage.getItem('token')) {
+                            next ()
+                        } else {
+                            next ('/login')
+                        }
+                    }
+                </pre>
+                <span>next() 参数为 false 时, 可以取消导航. 设置为具体的路径可以导航到指定的页面</span>
+                <p>to: 即将要进入的目标的路由对象</p>
+                <p>from: 当前导航即将要离开的路由对象</p>
+                <p>next: 调用该方法后, 才能进入下一个钩子</p>
 
         </div>
+        {{-- start of chapter 11.2 - vuex --}}
+        <div data-date="date-1204" data-chapter="chapter-11.2" class="mt-3">
+            <h2>Vuex 与状态管理</h2>
+                <blockquote>
+                    一个组件可以分为数据 (model) 和视图 (view), 数据更新时, 视图也会自动更新. 在视图中又可以绑定一些事件, 它们触发 methods 里指定的方法, 从而可以改变数据, 更新视图, 这是一个组件基本的运行模式. <br>正常情况下, 一个组件内的方法和数据只在该组件内可以访问和使用, 其他组件是无法读取和修改的, 但是在实际业务中, 经常有跨组件共享数据的需求. 因此 Vuex 的设计就是用来统一管理组件状态的, 它定义了一系列规范来使用和操作数据, 它的主要应用场景是大型单页应用, 使组件应用更加高效, 能优雅地完成状态管理.
+                </blockquote>
+            <h3>Vuex 的基本用法</h3>
+            <p>首先通过 NPM 安装 Vuex</p>
+            <pre>
+                npm install --save vuex
+            </pre>
+            <p>它的用法与 VueRouter 用法类似, 在 main.js 里:</p>
+            <pre>
+                import Vue from 'vue'
+                import Vuex from 'vuex'
+                Vue.use(Vuex)
+                const store = new Vuex.Store ({
+
+                })
+                new Vue({
+                    el: '#app',
+                    store: store,
+                    ...
+                })
+            </pre>
+            <p>store 包含了应用的数据(状态)和操作过程, Vuex 里的数据都是响应式的, 任何组件使用同一 store 数据是时, 只要 store 的数据变化, 对应的组件也会立即更新.
+            </p>
+            <p>数据保存在 Vuex 选项的 state 字段内, 比如, 定义一个数据 count, 初始值为0: </p>
+            <pre>
+            const store = new Vuex.Store({
+                state: {
+                    count: 0
+                }
+            })
+            </pre>
+            <p>在任何组件内, 可以通过 $store.state.count 读取, 比如在 template 标签内 调用: <span v-pre>@{{ this.$store.state.count }}</span>, 直接写在 template 标签内, 显的有些混乱, 可以用一个计算属性来显示</p>
+            <pre>
+                @{{ count }}
+                ...
+                export default {
+                    computed: {
+                        count () {
+                            return this.$store.state.count
+                        }
+                    }
+                }
+            </pre>
+            <p> <strong>在组件内, 来自 store 的数据只能读取, 不能手动修改, 改变 store 中数据唯一的途径就是显式地提交 mutations. Mutations 是 Vuex 的第二个选项, 用来直接修改 state 里的数据.</strong></p>
+            <pre>
+                const store = new Vuex.Store({
+                    state: {
+                        count: 0
+                    },
+                    mutations: {
+                        increment (state) {
+                            state.count ++
+                        },
+                        decrease (state) {
+                            state.count --
+                        }
+                    }
+                })
+            </pre>
+            <p>在组件内, 通过 this.$store.commit 方法来执行 mutations.</p>
+            <blockquote>
+               mutation: 变化; 转变; 突变; 变异
+               <br>
+               commit: 承诺, 使...承担义务
+            </blockquote>
+            <p>这看起来像 Javascript 的观察者模式, <strong>组件</strong>只负责提交事件名, Vuex 对应的 mutations 完成业务逻辑.</p>
+            <p>mutations 还可以接受第二个参数, 可以使数字, 字符串, 或对象等类型.</p>
+
+                <pre>
+                mutations: {
+                   increment(state, n) {
+                   n = n || 1
+                   state.count += n;
+                   }
+                }
+                </pre>
+            <p>组件中使用时, 当一个参数不够用时, 可以传入一个对象, 无限扩展.</p>
+            <p>提交 mutations 的另一种方式是直接使用包含 type 属性的对象, 在 index.vue 组件中,</p>
+            <pre>
+                // main.js
+                mutations: {
+                    increment (state,params) {
+                        state.count += params.count
+                    }
+                }
+            </pre>
+            <pre>
+                // about.vue
+                @{{ count }}
+                methods: {
+                    count () {
+                        this.$store.commit({
+                            type: 'increment',
+                            count = 10
+                        })
+                    }
+                }
+            </pre>
+            <p><i>
+                注: mutations 里尽量不要异步操作数据, 如果异步操作数据了, 组件在 commit 后, 数据不能立即改变, 而且不知道什么时候改变. actions 选项可以异步处理数据.
+            </i></p>
+            <h3>高级用法</h3>
+            <p>Vuex 还有3个选项可以使用: getters, actions, modules</p>
+            <p>如 Vuex 定义了数据 list, 它是一个数组:</p>
+            <pre>
+                const store = new Vuex.Store({
+                    state: {
+                        list: [1,5,8,10,30,50]
+                    }
+                    ...
+                })
+            </pre>
+            <p>现在某个组件中想得到数字小于10的数字, 最简单的方式是通过计算属性来进行过滤, 如:</p>
+            <pre>
+                export default {
+                    computed: {
+                        list () {
+                            return this.$store.state.list.filter(item => item < 10)
+                        }
+                    }
+                }
+            </pre>
+            <p>这样写没有问题, 但<strong>如果还有其他的组件也需要过滤后的数据时, 就得把 computed 代码复制一遍, 而且一旦需要修改过滤方法, 每个组件都得修改, 这明显不是我们期待的结果. 如果能将 computed 的方法提取出来就方便多了, getters 就是用来做这件事的.</strong></p>
+            <pre>
+                const store = new Vuex.Store({
+                    state: {
+                        list: [1,5,20,30]
+                    },
+                    getters: {
+                        filteredList: state => {
+                            return state.list.filter(item => item < 10)
+                        }
+                    }
+                })
+            </pre>
+
+            <p>组件中调用 this.$store.getters.filteredList</p>
+            <pre>
+                export default {
+                    computed: {
+                        list () {
+                            return this.$store.getters.filteredList
+                        }
+                    }
+                }
+            </pre>
+            <p>这种写法和组件的计算属性非常像. getters 也可以依赖其他的 getter, 把 getter 作为第二个参数, 比如在写一个 getter, 计算过滤后结果的数量</p>
+            <pre>
+                const store = new Vuex.Store({
+                    state: {
+                        list: [1,5,20,30]
+                    },
+                    getters: {
+                        filteredList: state => {
+                            return state.list.filter(item => item < 10)
+                        },
+                        listCount: (state, getters) => {
+                            return getters.filteredList.length
+                        }
+                    }
+                })
+            </pre>
+            <p>组件中调用</p>
+            <pre>
+                export default {
+                    computed: {
+                        list () {
+                            return this.$state.getters.filteredList
+                        },
+                        listCount () {
+                            return this.$state.getters.listCount
+                        }
+                    }
+                }
+            </pre>
+            <p>上文中提到, <strong>mutations 里不应该异步操作数据, 所以有了 actions 选项, actions 与 mutationns 很像, 不同的是 actions 里面提交的是 mutations, 并且可以异步操作.</strong></p>
+            <pre>
+                const store = new Vuex.Store({
+                    state: {
+                        count: 0
+                    },
+                    mutations: {
+                        increment (state,n=1) {
+                            state.count += n
+                        }
+                    },
+                    actions: {
+                        increment (context) {
+                            context.commit('increment')
+                        }
+                    }
+                })
+            </pre>
+            <blockquote>
+                context: 上下文
+            </blockquote>
+            <p>action 在组件内通过 $store.dispacth 触发, 如:</p>
+            未完待续
+            <p>最后一个选项是 modules, 它用来将 store 分割到不同模块, 每个 module 都拥有自己的 state, mutations, getters, actions, 而且可以多层嵌套.</p>
+            <h3>中央事件总线插件 vue-bus</h3>
+            <p>中央事件 bus 作为一个简单的组件传递事件, 用来解决跨级, 兄弟组件通信的问题. 这里将使用该思想将其封装为一个 Vue 的插件, 可以在所有组件件随意使用, 而不需要带入 bus.</p>
+        </div>
+        {{-- end of chapter 11.2 - vuex --}}
+
         </div>
     </div>
 </section>
+<section>
+    <div class="container bg-primary-2">
+            知识点总结: 指令, 插槽, render 函数, vuex, 自定义插件都是难点
+
+    </div>
+</section>
+
 @endsection
 
 @section('scripts')
