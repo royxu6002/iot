@@ -5,14 +5,8 @@
 // Route::get('app-kitchen-scale',function(){
 //     return view('pages.root2');
 // });
-Route::get('vue', function() {
-    return view('vue.interval');
-});
-Route::get('shop', function(){
-    return view('vue.index');
-});
-Route::get('component', function(){
-    return view('vue.component');
+Route::get('test', function() {
+    return view('test.index');
 });
 
 Route::get('customers', 'CustomersController@index')->name('customers.index');
@@ -30,14 +24,6 @@ Route::get('marketing1', function () {
 
 //invoice
 Route::resource('invoices', 'InvoiceController');
-
-//test
-Route::get('test', function() {
-    return view('test-table');
-});
-
-
-
 
 Route::get('/', 'PagesController@index')->name('root');
 Route::post('/', 'ProductsController@search')->name('products.search');

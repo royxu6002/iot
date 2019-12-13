@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\ProductSku;
 
 class Product extends Model
 {
@@ -21,5 +22,9 @@ class Product extends Model
     public function getRouteKeyName()
     {
         return 'product_slug';
+    }
+    public function productSkus()
+    {
+        return $this->hasMany(ProductSku::class);
     }
 }

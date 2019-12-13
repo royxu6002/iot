@@ -12,5 +12,9 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::namespace('api')->prefix('v1')->group(function (){
+    Route::get('/category', 'ProductController@getCategoryData');
+    Route::get('/products', 'ProductController@getProductsData');
+});
 
 

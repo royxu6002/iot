@@ -3,6 +3,7 @@
 namespace App\Admin\Controllers;
 
 use App\Models\Product;
+use App\Models\ProductSku;
 use App\Models\Category;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
@@ -103,10 +104,13 @@ class ProductsController extends AdminController
         $form->hasMany('images',  'Pictures', function (Form\NestedForm $form){
             $form->image('product_image')->uniqueName()->move('/images');
         });
+        $form->hasMany('productSkus', 'Sku', function (Form\NestedForm $form) {
+            $form->text('title', 'Product sku title');
+            $form->text('color', 'Product color');
+            $form->number('price');
+            $form->multipleImage('image')->removable()->uniqueName()->move('/images');
+        });
         $form->textarea('product_brief_intro', __('Product brief intro'));
-        // $form->hasMany('product_sku', 'SKUs', function (Form\NestedForm $form) {
-        //     $form->
-        // });
 
         return $form;
     }
