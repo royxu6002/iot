@@ -105,10 +105,10 @@ class ProductsController extends AdminController
             $form->image('product_image')->uniqueName()->move('/images');
         });
         $form->hasMany('productSkus', 'Sku', function (Form\NestedForm $form) {
-            $form->text('title', 'Product sku title');
+            $form->text('title',    'Product sku title');
             $form->text('color', 'Product color');
-            $form->number('price');
-            $form->multipleImage('image')->removable()->uniqueName()->move('/images');
+            $form->text('price', 'Product price')->rules('numbe');
+            $form->multipleImage('image', 'Product image')->removable()->uniqueName()->move('/images');
         });
         $form->textarea('product_brief_intro', __('Product brief intro'));
 

@@ -12,11 +12,8 @@ use Str;
 use Img;
 use DB;
 
-
-
 class ProductsController extends Controller
 {
-
     public function index()
     {
         $products = Product::with('images')->paginate(12);

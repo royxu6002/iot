@@ -16,8 +16,12 @@ class ProductSku extends Model
     public function setImageAttribute($image)
     {
         if (is_array($image)) {
-          $this->attributes['image'] = json_encode($image);
+            $images = collect($image)->transform(function($item, $key){
+                return $item = env('APP_URL').'/'.$item;
+            })->toArray();
+            $this->attributes['image'] = json_encode($images);
         }
+
     }
     public function getImageAttribute($image)
     {

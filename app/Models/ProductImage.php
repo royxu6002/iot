@@ -16,14 +16,11 @@ class ProductImage extends Model
     {
         return $this->belongsTo(Product::class);
     }
-    // public function setProductImageAttributes()
-    // {
-    //     if (Str::startsWith($this->attributes['product_image'], ['http://', 'https://'])) {
-    //         return $this->attributes['product_image'];
-    //     }
-    //     return env('APP_URL').'/'.$this->attributes['product_image'];
-    // }
-    // public function getProductImageAttributes()
+    public function setProductImageAttribute($product_image)
+    {
+        $this->attributes['product_image'] = env('APP_URL').'/'.$product_image;
+    }
+    // public function getProductImageAttribute()
     // {
     //     if (Str::startsWith($this->attributes['product_image'], ['http://', 'https://'])) {
     //         return $this->attributes['product_image'];

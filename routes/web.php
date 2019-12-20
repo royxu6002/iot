@@ -8,6 +8,9 @@
 Route::get('test', function() {
     return view('test.index');
 });
+Route::get('test-product', function(){
+    return view('test.product');
+});
 
 Route::get('customers', 'CustomersController@index')->name('customers.index');
 Route::get('customers/create', 'CustomersController@create')->name('customers.create');
