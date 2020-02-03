@@ -18,9 +18,4 @@ class TestController extends Controller
         return view('test.show');
     }
 
-    public function store(Request $request)
-    {
-
-    }
-
 }

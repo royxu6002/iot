@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\ProductSku;
 use App\Models\Category;
+use App\Http\Resources\Product as ProductResource;
 
 class ProductController extends Controller
 {
@@ -18,4 +19,17 @@ class ProductController extends Controller
     {
         return Product::with('productSkus')->with('images')->get();
     }
+    public function getProductData($id)
+    {
+        return Product::where('id', $id)->with('productSkus')->get();
+    }
+    public function index()
+    {
+        return ProductResource::collection(Product::all());
+    }
+    public function show($id)
+    {
+        return new ProductResource(Product::find($id));
+    }
+    
 }

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\ProductSku;
+use App\Models\ProductPackage;
 
 class Product extends Model
 {
@@ -13,7 +14,6 @@ class Product extends Model
     {
         return $this->belongTo(Category::class);
     }
-
     public function images()
     {
         return $this->hasMany(ProductImage::class);
@@ -26,5 +26,9 @@ class Product extends Model
     public function productSkus()
     {
         return $this->hasMany(ProductSku::class);
+    }
+    public function productPackages()
+    {
+        return $this->hasMany(ProductPackage::class);
     }
 }

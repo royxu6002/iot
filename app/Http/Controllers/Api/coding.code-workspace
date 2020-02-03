@@ -1,0 +1,27 @@
+{
+	"folders": [
+		{
+			"name": "v-ecommerce",
+			"path": "/Users/xb/Code/v-ecommerce"
+		},
+		{
+			"name": "vue-buy",
+			"path": "/Users/xb/Code/vue-buy"
+		},
+		{
+			"name": "vue-bold",
+			"path": "/Users/xb/Code/vue-bold"
+		},
+		{
+			"name": "iot",
+			"path": "/Users/xb/Code/iot"
+		}
+	],
+
+	"vetur.format.defaultFormatterOptions": {
+		"prettier": {
+			"semi": false,
+			"singelQuote": true
+		}
+	}
+}

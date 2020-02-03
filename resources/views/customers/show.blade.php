@@ -103,8 +103,15 @@
 
 </div>
 </div>
+@endsection
+
+@section('styles')
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+@endsection
+
 @section('scripts')
-     <script type="text/javascript">
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script type="text/javascript">
      function del(){
           if(!confirm("确认要删除？")){
                window.event.returnValue = false;
@@ -112,6 +119,5 @@
      }
      </script>
 @endsection
-
 
 

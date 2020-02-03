@@ -4,7 +4,7 @@
 <section class="pt-5">
   <div class="container">
     <div class="row" data-isotope-collection="" data-isotope-id="projects" style="position: relative;">
-        @include('shared._messages')
+      @include('shared._messages')
       @foreach($products as $key=>$product)
         <div class="col-sm-6 col-lg-3 mb-4 text-center" >
             <a href="{{ route('products.show', $product->product_slug) }}">

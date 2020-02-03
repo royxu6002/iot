@@ -15,7 +15,6 @@ class Blog extends Model
     {
         return 'title_slug';
     }
-
     public function text($length = 300)
     {
         return Str::words($this->article_abstract, $length, '...');
