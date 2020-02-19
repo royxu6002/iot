@@ -31,4 +31,8 @@ class Product extends Model
     {
         return $this->hasMany(ProductPackage::class);
     }
+    public function invoices()
+    {
+        return $this->belongsToMany(Invoice::class);
+    }
 }

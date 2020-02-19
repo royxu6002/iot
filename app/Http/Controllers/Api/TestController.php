@@ -11,6 +11,16 @@ class TestController extends Controller
 {
     public function index()
     {
-            
+    
+        $categories = Category::all();
+
+        $collection = collect($categories)->mapWithKeys(function($category){
+            return [$category->id => [
+                'product_name' => $category->category_name,
+            ]];
+        }); 
+
+        return $collection->all();
+
     }
 }

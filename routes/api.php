@@ -20,21 +20,28 @@ Route::namespace('api')->prefix('v1')->group(function (){
     Route::get('/category', 'ProductController@getCategoryData');
     Route::get('/products', 'ProductController@getProductsData');
     Route::get('/product/{id}', 'ProductController@getProductData');
+    Route::get('/packages/{id}', 'ProductController@getPackagesData');
+
     Route::resource('/faq', 'FaqController');
-    Route::resource('/customer', 'CustomerController');
+
+    Route::resource('/customer', 'CustomerController',[
+        'except' => ['create']
+    ]);
+    
+    Route::get('client', 'CustomerController@client');
+
+    Route::resource('invoice', 'InvoiceController');
+
+    Route::resource('transaction', 'TransactionController', [
+        'except' => 'create'
+    ]);
 });
 
 Route::group(
     [
-        'prefix' => 'v2',
+        'prefix' => 'v1',
         'namespace' => 'api',
     ], function() {
-        Route::get('product', 'ProductController@index');
-        Route::get('product/{product}', 'ProductController@show');
-        Route::get('category', function() {
-            return new CategoryCollection(Category::all);
-        });
+        Route::get('test', 'TestController@index');
     }
 );
-
-

@@ -6,6 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class ProductPackage extends Model
 {
-    protect $table = "product_packages";
+    protected $table = "product_packages";
+
     protected $guard = [];
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
 }

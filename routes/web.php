@@ -3,7 +3,7 @@ Route::get('filter', function(){
     return view('vue.filter');
 });
 
-// Route::get('customers', 'CustomersController@index')->name('customers.index');
+Route::get('customers', 'CustomersController@index')->name('customers.index');
 // Route::post('customers', 'CustomersController@store')->name('customers.store');
 // Route::get('customers/{customer}', 'CustomersController@show')->name('customers.show');
 // Route::get('customers/{customer}/edit', 'CustomersController@edit')->name('customers.edit');

@@ -16,12 +16,5 @@
 			"name": "iot",
 			"path": "/Users/xb/Code/iot"
 		}
-	],
-
-	"vetur.format.defaultFormatterOptions": {
-		"prettier": {
-			"semi": false,
-			"singelQuote": true
-		}
-	}
+	]
 }
