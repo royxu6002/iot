@@ -18,7 +18,7 @@ class ProductController extends Controller
     }
     public function getProductsData()
     {
-        return Product::with('productSkus')->with('images')->get();
+        return Product::with('skus')->with('images')->get();
     }
     
     public function getProductData($id)
