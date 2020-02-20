@@ -27,12 +27,14 @@ Route::namespace('api')->prefix('v1')->group(function (){
     Route::resource('/customer', 'CustomerController',[
         'except' => ['create']
     ]);
-    
     Route::get('client', 'CustomerController@client');
 
     Route::resource('invoice', 'InvoiceController');
 
     Route::resource('transaction', 'TransactionController', [
+        'except' => 'create'
+    ]);
+    Route::resource('shipment', 'ShipmentController',[
         'except' => 'create'
     ]);
 });

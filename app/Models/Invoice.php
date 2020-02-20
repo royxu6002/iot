@@ -36,9 +36,9 @@ class Invoice extends Model
         return sum($this->transactions->payments->payment_amount);
     }
 
-    public function balanced()
+    public function shipment()
     {
-       
+        return $this->hasOne(Shipment::class);
     }
 
 }

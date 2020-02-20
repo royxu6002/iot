@@ -21,7 +21,8 @@ class InvoiceController extends Controller
     }
 
     public function store(Request $request)
-    {
+    { 
+        // 这里是否应该开启 DB 事务处理??? 因为即使 invoiceProducts不能创建成功, invoice 还是会被创建;
         $invoice = Invoice::create($request->except('order_info'));
         $collection = collect($request->order_info);
 
@@ -40,9 +41,6 @@ class InvoiceController extends Controller
 
     }
 
-    public function totalPayments($id)
-    {
-        $invoice = Invoice::find($id);
-        return $invoice->paid()->get();
-    }
+
+
 }
