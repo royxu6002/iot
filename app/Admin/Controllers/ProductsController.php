@@ -47,6 +47,7 @@ class ProductsController extends AdminController
         $grid = new Grid(new Product);
         $grid->column('id', __('Id'));
         $grid->column('product_name', __('Product name'));
+        $grid->column('hs_code', __('HS Code'));
         $grid->column('product_slug', __('Product slug'));
         $grid->column('category_id', __('Category id'));
         $grid->column('product_description', __('Product description'))->limit(20);
@@ -72,6 +73,7 @@ class ProductsController extends AdminController
 
         $show->field('id', __('Id'));
         $show->field('product_name', __('Product name'));
+        $show->field('hs_code', __('HS Code'));
         $show->field('category_id', __('Category id'));
 
         $show->field('product_description', __('Product description'));
@@ -89,6 +91,7 @@ class ProductsController extends AdminController
     {
         $form = new Form(new Product);
         $form->text('product_name', __('Product name'));
+        $form->text('hs_code', __('HS code'));
         $form->text('product_slug', __('Product slug'));
 
         // https://learnku.com/docs/laravel/6.x/collections/5161
