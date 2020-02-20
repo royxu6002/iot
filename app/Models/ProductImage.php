@@ -16,10 +16,12 @@ class ProductImage extends Model
     {
         return $this->belongsTo(Product::class);
     }
+
     public function setProductImageAttribute($product_image)
     {
         $this->attributes['product_image'] = env('APP_URL').'/'.$product_image;
     }
+    
     // public function getProductImageAttribute()
     // {
     //     if (Str::startsWith($this->attributes['product_image'], ['http://', 'https://'])) {

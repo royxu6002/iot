@@ -23,14 +23,16 @@ class Product extends Model
     {
         return 'product_slug';
     }
-    public function productSkus()
+    public function skus()
     {
         return $this->hasMany(ProductSku::class);
     }
-    public function productPackages()
+    
+    public function packages()
     {
         return $this->hasMany(ProductPackage::class);
     }
+
     public function invoices()
     {
         return $this->belongsToMany(Invoice::class);

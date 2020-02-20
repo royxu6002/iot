@@ -23,12 +23,12 @@ class ProductController extends Controller
     
     public function getProductData($id)
     {
-        return Product::where('id', $id)->with('productSkus')->get();
+        return Product::where('id', $id)->with('skus')->get();
     }
 
     public function getPackagesData($id)
     {
-        return Product::find($id)->productPackages()->get();
+        return Product::find($id)->packages()->get();
     }
 
     public function index()

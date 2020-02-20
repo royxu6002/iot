@@ -8,7 +8,7 @@ class ProductPackage extends Model
 {
     protected $table = "product_packages";
 
-    protected $guard = [];
+    protected $guarded = [];
 
     public function product()
     {

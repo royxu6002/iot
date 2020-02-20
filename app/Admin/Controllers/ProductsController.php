@@ -107,7 +107,17 @@ class ProductsController extends AdminController
         $form->hasMany('images',  'Pictures', function (Form\NestedForm $form){
             $form->image('product_image')->uniqueName()->move('/images');
         });
-        $form->hasMany('productSkus', 'Sku', function (Form\NestedForm $form) {
+        $form->hasMany('packages',  'Packages Data', function (Form\NestedForm $form){
+            $form->text('product_model', 'Model');
+            $form->text('product_package_length', 'Package length');
+            $form->text('product_package_width', 'Package width');
+            $form->text('product_package_height', 'Package height');
+            $form->number('product_package_item_num', 'Package item num');
+            $form->text('product_package_cbm', 'Package cbm');
+            $form->text('product_package_net_weight', 'Net weight');
+            $form->text('product_package_gross_weight', 'Gross weight');
+        });
+        $form->hasMany('skus', 'Sku', function (Form\NestedForm $form) {
             $form->text('title',    'Product sku title');
             $form->text('color', 'Product color');
             $form->text('price', 'Product price')->rules('numbe');
