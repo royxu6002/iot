@@ -19,7 +19,9 @@ use App\Models\Category;
 Route::namespace('api')->prefix('v1')->group(function (){
     Route::get('/category', 'ProductController@getCategoryData');
     Route::get('/products', 'ProductController@getProductsData');
+    Route::get('/product', 'ProductController@index');
     Route::get('/product/{id}', 'ProductController@getProductData');
+    
     Route::get('/packages/{id}', 'ProductController@getPackagesData');
 
     Route::resource('/faq', 'FaqController');

@@ -20,9 +20,9 @@ class Product extends JsonResource
             'id' => $this->id,
             'name' => $this->product_name,
             'description' => $this->product_description,
-            // 'images' => ProductImageResource::collection($this->images),
             'images' => $this->images,
-            'sku' => $this->skus,
+            'skus' => $this->skus,
+            'packages' => $this->packages,
         ];
     }
 }
