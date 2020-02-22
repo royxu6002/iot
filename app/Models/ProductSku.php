@@ -13,6 +13,7 @@ class ProductSku extends Model
         'color',
         'image'
     ];
+    
     public function setImageAttribute($image)
     {
         if (is_array($image)) {

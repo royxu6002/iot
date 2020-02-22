@@ -53,8 +53,6 @@ class ProductsController extends AdminController
         $grid->column('product_description', __('Product description'))->limit(20);
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
-        $grid->column('product_brief_intro', __('Product brief intro'));
-
         $grid->actions(function (Grid\Displayers\Actions $actions) {
             $actions->disableView();
         });

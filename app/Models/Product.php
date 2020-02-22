@@ -14,17 +14,17 @@ class Product extends Model
         'imgs' => 'json',
     ];
     
-    public function setImageAttribute($image)
+    public function setImgsAttribute($image)
     {
         if (is_array($image)) {
             $images = collect($image)->transform(function($item, $key){
                 return $item = env('APP_URL').'/'.$item;
             })->toArray();
-            $this->attributes['image'] = json_encode($images);
+            $this->attributes['imgs'] = json_encode($images);
         }
 
     }
-    public function getImageAttribute($image)
+    public function getImgsAttribute($image)
     {
         return json_decode($image, true);
     }
