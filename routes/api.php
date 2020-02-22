@@ -33,6 +33,9 @@ Route::namespace('api')->prefix('v1')->group(function (){
 
     Route::resource('invoice', 'InvoiceController');
 
+    // 专门建立一个API接口, 拿到完整的模型
+    Route::get('invoices/{invoice}', 'InvoiceController@getInvoiceData');
+
     Route::resource('transaction', 'TransactionController', [
         'except' => 'create'
     ]);
