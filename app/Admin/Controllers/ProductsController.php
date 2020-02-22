@@ -121,7 +121,7 @@ class ProductsController extends AdminController
             $form->text('title',    'Product sku title');
             $form->text('color', 'Product color');
             $form->text('price', 'Product price')->rules('numbe');
-            $form->multipleImage('image', 'Product image')->removable()->uniqueName()->move('/images');
+            $form->multipleImage('image', 'Product image')->sortable()->removable()->uniqueName()->move('/images');
         });
         $form->textarea('product_brief_intro', __('Product brief intro'));
 

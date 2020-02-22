@@ -16,6 +16,7 @@ class Invoice extends JsonResource
     {
         return [
             'id' => $this->id,
+            'type' => $this->type,
             'issued_date' => $this->invoice_issued_date,
             'due_date' => $this->invoice_due_date,
             'client' => $this->customer,
