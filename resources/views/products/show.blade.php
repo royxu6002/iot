@@ -122,15 +122,15 @@
                             <div class="carousel-inner col-12">
                                 <div class="carousel-item">
                                     <a href="">
-                                        <img src="{{ url($product->images->first()->product_image) }}" alt="" class="img-fluid">
+                                        <img src="{{ url($product->imgs[0]) }}" alt="" class="img-fluid">
                                     </a>
                                 </div>
                             </div>
                             <div class="carousel-indicators">
-                                @foreach ($product->images as $key => $image)
+                                @foreach ($product->imgs as $key => $image)
                                      <div class="thumbnail">
                                         <a href="">
-                                            <img src="{{ url($image['product_image']) }}" alt="">
+                                            <img src="{{ url($image) }}" alt="">
                                         </a>
                                     </div>
                                 @endforeach

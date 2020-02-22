@@ -8,7 +8,8 @@
       @foreach($products as $key=>$product)
         <div class="col-sm-6 col-lg-3 mb-4 text-center" >
             <a href="{{ route('products.show', $product->product_slug) }}">
-                <img src="{{ empty($product->images->first())? '':url($product->images()->pluck('product_image')->first()) }}" class="rounded mb-3">
+            <!-- $product->images()->pluck('product_image')->first() -->
+                <img src="{{ empty($product->imgs[0])? '':url($product->imgs[0]) }}" class="rounded mb-3">
                 <p class="mb-1 text-muted">{{ $product->product_name }}</p>
             </a>
         </div>

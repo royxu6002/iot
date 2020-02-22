@@ -104,9 +104,10 @@ class ProductsController extends AdminController
         $form->select('category_id',  __('Product Category'))->options($grouped);
 
         $form->ckeditor('product_description','Product description');
-        $form->hasMany('images',  'Pictures', function (Form\NestedForm $form){
-            $form->image('product_image')->uniqueName()->move('/images');
-        });
+        $form->multipleImage('imgs', 'Images')->sortable()->removable()->uniqueName()->move('/images');
+        // $form->hasMany('images',  'Pictures', function (Form\NestedForm $form){
+        //     $form->image('product_image')->uniqueName()->move('/images');
+        // });
         $form->hasMany('packages',  'Packages Data', function (Form\NestedForm $form){
             $form->text('product_model', 'Model');
             $form->text('product_package_length', 'Package length');

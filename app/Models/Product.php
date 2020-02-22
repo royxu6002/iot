@@ -8,7 +8,27 @@ use App\Models\ProductPackage;
 
 class Product extends Model
 {
-    protected $fillable = ['product_name', 'product_description', 'category_id', 'product_slug', 'product_brief_intro' ];
+    protected $guarded = [];
+
+    protected $casts = [
+        'imgs' => 'json',
+    ];
+    
+    public function setImageAttribute($image)
+    {
+        if (is_array($image)) {
+            $images = collect($image)->transform(function($item, $key){
+                return $item = env('APP_URL').'/'.$item;
+            })->toArray();
+            $this->attributes['image'] = json_encode($images);
+        }
+
+    }
+    public function getImageAttribute($image)
+    {
+        return json_decode($image, true);
+    }
+    
 
     public function category()
     {
