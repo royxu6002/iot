@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Resources\Invoice as InvoiceResource;
 use App\Models\Invoice;
 use App\Models\InvoiceProduct;
+use Illuminate\Support\Facades\DB; 
 
 class InvoiceController extends Controller
 {
@@ -29,43 +30,61 @@ class InvoiceController extends Controller
     public function store(Request $request)
     { 
         // 这里是否应该开启 DB 事务处理??? 因为即使 invoiceProducts不能创建成功, invoice 还是会被创建;
-        $invoice = Invoice::create($request->except('order_info'));
-        $collection = collect($request->order_info);
+        DB::beginTransaction();
+        try{ 
+            //中间逻辑代码
+            $invoice = Invoice::create($request->except('order_info'));
+            $collection = collect($request->order_info);
 
-        $products = $collection->keyBy('product_id')->map(function($value, $key){
-            unset($value['product_id']);
-            return $value;
-        });
+            $products = $collection->keyBy('product_id')->map(function($value, $key){
+                unset($value['product_id']);
+                return $value;
+            });
+ 
+            $invoice->products()->attach($products->all());
 
-        $invoice->products()->attach($products->all());
+            DB::commit(); 
 
-        if ($invoice) {
-            return response()->json([
-                'msg' => 'created successfully'
-            ]);
-        } 
+            if ($invoice) {
+                return response()->json([
+                    'msg' => 'created successfully'
+                ]);
+            } 
+        }catch (\Exception $e) { 
+            //接收异常处理并回滚
+
+            DB::rollBack(); 
+        }
 
     }
     
     public function update(Request $request, $id)
-    {        
-        $invoice = Invoice::find($id);
+    {     
+        DB::beginTransaction();
 
-        $invoiceData = collect($request->except('products'))->except(['created_at', 'updated_at', 'id']);
+        try{
+            $invoice = Invoice::find($id);
+            $invoiceData = collect($request->except('products'))->except(['created_at', 'updated_at', 'id']);
+    
+            $invoice->update($invoiceData->all());
+    
+            $products = collect($request->products)->pluck('order_info')->keyBy('product_id')->map(function($value, $key){
+                unset($value['product_id'],$value['invoice_id'], $value['created_at'],$value['updated_at']);
+                return $value;
+            });
+    
+            $invoice->products()->sync($products->all());
 
-        $invoice->update($invoiceData->all());
+            DB::commit();
 
-        $products = collect($request->products)->pluck('order_info')->keyBy('product_id')->map(function($value, $key){
-            unset($value['product_id'],$value['invoice_id'], $value['created_at'],$value['updated_at']);
-            return $value;
-        });
-
-        $invoice->products()->sync($products->all());
-
-        if ($invoice) {
-            return response()->json([
-                'msg' => 'updated successfully'
-            ]);
+            if ($invoice) {
+                return response()->json([
+                    'msg' => 'updated successfully'
+                ]);
+            }
+        } catch (\Exception $e) {
+            DB::rollBack();
         }
+
     }
 }
