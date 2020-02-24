@@ -57,4 +57,9 @@ class Product extends Model
     {
         return $this->belongsToMany(Invoice::class);
     }
+
+    public function factory()
+    {
+        return $this->belongsTO(Factory::class);
+    }
 }

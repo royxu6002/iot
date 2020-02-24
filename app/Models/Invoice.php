@@ -31,11 +31,6 @@ class Invoice extends Model
         return $this->hasMany(Transaction::class);
     }
 
-    // public function paid()
-    // {
-    //     return sum($this->transactions->payments->payment_amount);
-    // }
-
     public function shipment()
     {
         return $this->hasOne(Shipment::class);
