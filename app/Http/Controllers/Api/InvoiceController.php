@@ -8,6 +8,8 @@ use App\Http\Resources\Invoice as InvoiceResource;
 use App\Models\Invoice;
 use App\Models\InvoiceProduct;
 use Illuminate\Support\Facades\DB; 
+use App\Models\Product;
+use App\Models\Factory;
 
 class InvoiceController extends Controller
 {
@@ -86,5 +88,12 @@ class InvoiceController extends Controller
             DB::rollBack();
         }
 
+    }
+
+
+    public function test($id)
+    {
+        $product = Product::find($id);
+        return $product->factory()->get();
     }
 }

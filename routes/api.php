@@ -49,6 +49,6 @@ Route::group(
         'prefix' => 'v1',
         'namespace' => 'api',
     ], function() {
-        Route::get('test', 'TestController@index');
+        Route::get('test', 'InvoiceController@test');
     }
 );
