@@ -1,11 +1,4 @@
 <?php
-
-use Illuminate\Http\Request;
-use App\Http\Resources\Customer as CustomerResource;
-use App\Http\Resources\Product as ProductResource;
-use App\Models\Product;
-use App\Http\Resources\CategoryCollection;
-use App\Models\Category;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -16,7 +9,7 @@ use App\Models\Category;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::namespace('api')->prefix('v1')->group(function (){
+Route::namespace('Api')->prefix('v1')->group(function (){
     Route::get('/category', 'ProductController@getCategoryData');
     Route::get('/products', 'ProductController@getProductsData');
     Route::get('/product', 'ProductController@index');
@@ -47,7 +40,7 @@ Route::namespace('api')->prefix('v1')->group(function (){
 Route::group(
     [
         'prefix' => 'v1',
-        'namespace' => 'api',
+        'namespace' => 'Api',
     ], function() {
         Route::get('test', 'InvoiceController@test');
     }
