@@ -15,8 +15,8 @@ class CategoryComposer
 
     public function compose(View $view)
     {
-        $category = $this->category->all();
-
+        $category = $this->category->where('online', 'yes')->get();
+        
         $view->with('category', $category);
     }
 }

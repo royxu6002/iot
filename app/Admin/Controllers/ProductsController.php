@@ -47,6 +47,7 @@ class ProductsController extends AdminController
         $grid = new Grid(new Product);
         $grid->column('id', __('Id'));
         $grid->column('product_name', __('Product name'));
+        $grid->column('online', __('online'));
         $grid->column('hs_code', __('HS Code'));
         $grid->column('product_slug', __('Product slug'));
         $grid->column('category_id', __('Category id'));
@@ -71,6 +72,7 @@ class ProductsController extends AdminController
 
         $show->field('id', __('Id'));
         $show->field('product_name', __('Product name'));
+        $show->field('online', __('Online'));
         $show->field('hs_code', __('HS Code'));
         $show->field('category_id', __('Category id'));
 
@@ -89,16 +91,15 @@ class ProductsController extends AdminController
     {
         $form = new Form(new Product);
         $form->text('product_name', __('Product name'));
+        $form->select('online')->options([1 => 'yes', 2 => 'no']);
         $form->text('hs_code', __('HS code'));
         $form->text('product_slug', __('Product slug'));
 
         // https://learnku.com/docs/laravel/6.x/collections/5161
-        $grouped = Category::all('id', 'category_name')->mapWithKeys(function ($item, $key){
-            return [$item['id'] => $item['category_name']];
-        })->all();
-        /** equal to
-         * $grouped = Category::all()->pluck('category_name', 'id')->all();
-         */
+        // $grouped = Category::all('id', 'category_name')->mapWithKeys(function ($item, $key){
+        //     return [$item['id'] => $item['category_name']];
+        // })->all();
+        $grouped = Category::query()->pluck('category_name', 'id')->all();
         $form->select('category_id',  __('Product Category'))->options($grouped);
 
         $form->ckeditor('product_description','Product description');

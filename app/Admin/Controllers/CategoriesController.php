@@ -35,6 +35,7 @@ class CategoriesController extends AdminController
 
         $grid->column('id', __('Id'));
         $grid->column('category_name', __('Category name'));
+        $grid->column('online', __('Online'));
         $grid->column('category_slug', __('Category slug'));
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
@@ -54,6 +55,7 @@ class CategoriesController extends AdminController
 
         $show->field('id', __('Id'));
         $show->field('category_name', __('Category name'));
+        $show->field('online', __('online'));
         $show->field('category_slug', __('Category slug'));
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
@@ -71,6 +73,7 @@ class CategoriesController extends AdminController
         $form = new Form(new Category);
 
         $form->text('category_name', __('Category name'));
+        $form->select('online')->options([1 => 'yes', 2 => 'no']);
         $form->text('category_slug', __('Category slug'));
 
         return $form;

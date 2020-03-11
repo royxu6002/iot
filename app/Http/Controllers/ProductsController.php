@@ -16,23 +16,21 @@ class ProductsController extends Controller
 {
     public function index()
     {
-        $products = Product::with('images')->paginate(12);
+        $products = Product::where('online', 'yes')->with('images')->paginate(12);
 
         return view('products.index', compact('products'));
     }
 
     public function show(Product $product)
     {
-        // $prefix = env('APP_URL');
-        // dd(url($product->images->first()->product_image));
-        $relatedProducts = Product::inRandomOrder()->take(4)->get();
+        $relatedProducts = Product::where('online', 'yes')->inRandomOrder()->take(4)->get();
         return view('products.show', compact('product', 'relatedProducts'));
     }
 
     public function search(Request $request)
     {
         if( !empty(trim($request->input('s'))) ) {
-            $products = Product::where('product_name', 'like', '%'.$request->input('s').'%')->get();
+            $products = Product::where('online', 'yes')->where('product_name', 'like', '%'.$request->input('s').'%')->get();
 
             if(count($products) > 0) {
                 session()->flash('message', 'Here is what we find for "'.$request->input('s').'"');
