@@ -20,7 +20,16 @@
     <script src="{{ asset('js/aos.js') }}"></script>
     <script src="{{ asset('js/theme.js') }}"></script>
     <script src="{{ asset('js/index.js') }}"></script>
-    <script></script>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?b5b1a710f055c5afd3217cf6a92962c6";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
     @yield('scripts')
 </body>
 </html>
