@@ -13,7 +13,14 @@
                 <p class="mb-1 text-muted">{{ $product->product_name }}</p>
             </a>
         </div>
-    @endforeach
+      @endforeach
+    </div>
+    <div class="row">
+      <div class="text-center">
+        {{ $products->render() }}
+      </div>
+    </div>
+  </div>
 </section>
 @endsection
 
