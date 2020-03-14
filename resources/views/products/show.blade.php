@@ -118,7 +118,7 @@
             <div class="col-12">
                 <div class="detail-area">
                     <div class="row">
-                        <div class="product-slider col-lg-7 col-md-12 col-sm-12">
+                        <div class="product-slider col-lg-6 col-md-12 col-sm-12">
                             <div class="carousel-inner col-12">
                                 <div class="carousel-item">
                                     <a href="">
@@ -136,7 +136,7 @@
                                 @endforeach
                             </div>
                         </div>
-                        <div class="product-tabs align-items-center justify-content-between col-lg-5 col-md-12 col-sm-12">
+                        <div class="product-tabs align-items-center justify-content-between col-lg-6 col-md-12 col-sm-12">
                                 <!-- Nav tabs -->
                                 <ul class="nav" id="myTab" role="tablist">
                                   <li class="nav-item">
