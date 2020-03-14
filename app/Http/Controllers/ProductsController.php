@@ -16,7 +16,7 @@ class ProductsController extends Controller
 {
     public function index()
     {
-        $products = Product::where('online', 'yes')->with('images')->paginate(12);
+        $products = Product::where('online', 'yes')->orderBy('id', 'desc')->with('images')->paginate(12);
 
         return view('products.index', compact('products'));
     }

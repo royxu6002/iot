@@ -16,7 +16,7 @@
       @endforeach
     </div>
     <div class="row">
-      <div class="text-center">
+      <div class="text-center pl-3">
         {{ $products->render() }}
       </div>
     </div>

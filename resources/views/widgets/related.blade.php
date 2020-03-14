@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row align-content-center">
         <div class="align-items-left">
-            <h3>Related Product</h3>
+            <h3>You May Like</h3>
         </div>
         <div class="ml-2">
             <a class="badge badge-primary" href="{{ route('products.index') }}" style="float: right">View All</a>

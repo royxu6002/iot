@@ -10,7 +10,7 @@ class CategoryController extends Controller
 
     public function show(Category $category)
     {
-        $products = $category->products()->where('online', 'yes')->paginate(12);
+        $products = $category->products()->orderBy('id', 'desc')->where('online', 'yes')->paginate(12);
         return view('products.index', compact('products'));
     }
 
