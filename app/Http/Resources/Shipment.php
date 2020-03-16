@@ -24,6 +24,7 @@ class Shipment extends JsonResource
             'seal_no' => $this->seal_no,
             'etd' => $this->etd,
             'eta' => $this->eta,
+            'status' => $this->status,
         ];
     }
 }

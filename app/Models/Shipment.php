@@ -12,4 +12,9 @@ class Shipment extends Model
     {
         return $this->belongsTo(Invoice::class);
     }
+
+    public function status()
+    {
+        return $this->hasOne(ShipmentStatus::class);
+    }
 }

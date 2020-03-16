@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Shipment;
 use App\Http\Resources\Shipment as ShipmentResource;
 use Illuminate\Http\Request;
+use DB;
 
 class ShipmentController extends Controller
 {
@@ -27,11 +28,24 @@ class ShipmentController extends Controller
      */
     public function store(Request $request)
     {
-        Shipment::create($request->all());
 
-        return response()->json([
-            'msg' => 'Created successfully'
-        ]);
+        DB::beginTransaction();
+        try {
+            $shipment = Shipment::create($request->except('status'));
+            $shipment->status()->create(['status' => $request->status]);
+
+            DB::commit();
+
+            if($shipment) {
+                return response()->json([
+                    'msg' => 'Created successfully'
+                ]);
+            }
+
+        } catch(\Exception $e) {
+            DB::rollBack();
+        }
+        
     }
 
     /**
@@ -76,10 +90,20 @@ class ShipmentController extends Controller
      */
     public function destroy(Shipment $shipment)
     {
-        $shipment->delete();
+        DB::beginTransaction();
+        try {
+            $shipment->delete();
+            $shipment->status()->delete();
 
-        return response()->json([
-            'msg' => 'deleted successfully'
-        ]);
+            DB::commit();
+            
+            return response()->json([
+                'msg' => 'deleted successfully'
+            ]);
+        } catch (\Exception $e) {
+
+            DB::rollBack();
+        } 
+       
     }
 }
