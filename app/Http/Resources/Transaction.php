@@ -21,6 +21,7 @@ class Transaction extends JsonResource
             'invoice_id' => $this->invoice_id,
             'customer' => $this->invoice->customer,
             'amount' => $this->payment_amount,
+            'currency' => $this->currency,
             'payment_method' => $this->payment_method,
             'note' => $this->internal_payment_note,
         ];

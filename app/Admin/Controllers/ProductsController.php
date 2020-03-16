@@ -91,7 +91,7 @@ class ProductsController extends AdminController
     {
         $form = new Form(new Product);
         $form->text('product_name', __('Product name'));
-        $form->select('online')->options([1 => 'yes', 2 => 'no']);
+        $form->select('online', __('Product online'))->options(['yes' => 'yes', 'no' => 'no']);
         $form->text('hs_code', __('HS code'));
         $form->text('product_slug', __('Product slug'));
 
