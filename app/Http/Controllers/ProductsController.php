@@ -14,30 +14,48 @@ use DB;
 
 class ProductsController extends Controller
 {
+
     public function index()
     {
-        $products = Product::where('online', 'yes')->orderBy('id', 'desc')->with('images')->paginate(12);
+
+        $products = Product::where('online', 'yes')
+            ->orderBy('id', 'desc')
+            ->with('images')
+            ->paginate(12);
 
         return view('products.index', compact('products'));
     }
 
     public function show(Product $product)
     {
-        $relatedProducts = Product::where('online', 'yes')->inRandomOrder()->take(4)->get();
+        $relatedProducts = Product::where('online', 'yes')
+            ->inRandomOrder()
+            ->take(4)
+            ->get();
+
         return view('products.show', compact('product', 'relatedProducts'));
     }
 
     public function search(Request $request)
     {
-        if( !empty(trim($request->input('s'))) ) {
-            $products = Product::where('online', 'yes')->where('product_name', 'like', '%'.$request->input('s').'%')->get();
+
+        if( !empty(trim($request->input('s'))) ) { 
+
+            // 限定搜索结果是否应该显示 未上线产品目录里面的产品
+            // $category_id = Category::where('online', 'yes')->pluck('id')->all();
+
+            $products = Product::where('online', 'yes')
+                // ->whereIn('category_id', $category_id)
+                ->where('product_name', 'like', '%'.$request->input('s').'%')
+                // products.index 这个视图页面有个逻辑包含搜索页面, 如果搜索结果分页会 $products->render() 报错;
+                ->paginate(12);
 
             if(count($products) > 0) {
                 session()->flash('message', 'Here is what we find for "'.$request->input('s').'"');
                 return view('products.index', compact('products'));
             } else {
                 session()->flash('message', 'sorry that we find nothing for "'.$request->input('s').'"');
-                return view('products.index', compact('products'));
+                return redirect()->route('products.index');
             }
         }
         return redirect()->back()->with('warning', 'please type into a product name for a search');

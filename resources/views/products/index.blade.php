@@ -15,11 +15,13 @@
         </div>
       @endforeach
     </div>
+    @if($products)
     <div class="row">
       <div class="text-center pl-3">
-        {{ $products->render() }}
+        {!! $products->render() !!}
       </div>
     </div>
+    @endif
   </div>
 </section>
 @endsection

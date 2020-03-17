@@ -73,7 +73,7 @@ class CategoriesController extends AdminController
         $form = new Form(new Category);
 
         $form->text('category_name', __('Category name'));
-        $form->select('online')->options([1 => 'yes', 2 => 'no']);
+        $form->select('online')->options(['yes'=> 'yes', 'no'=> 'no']);
         $form->text('category_slug', __('Category slug'));
 
         return $form;
