@@ -60,6 +60,8 @@ return [
         'name' => env('MAIL_FROM_NAME', 'Comlibra Electronic'),
     ],
 
+    'reply_to' => env('MAIL_FROM_ADDRESS', 'export@comlibra.com'),
+
     /*
     |--------------------------------------------------------------------------
     | E-Mail Encryption Protocol

@@ -1,7 +1,6 @@
 <?php
-Route::get('filter', function(){
-    return view('vue.filter');
-});
+// email direct marketing
+Route::get('edm/1', 'EmailController@index');
 
 Route::get('customers', 'CustomersController@index')->name('customers.index');
 // Route::post('customers', 'CustomersController@store')->name('customers.store');
