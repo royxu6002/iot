@@ -2,7 +2,7 @@
 // email direct marketing
 Route::get('edm/1', 'EmailController@index');
 
-Route::namespace('Api')->prefix('api')->group(function(){
+Route::namespace('Api')->prefix('api/v1')->group(function(){
     Route::post('/login', 'ApiController@login');
     Route::post('/logout', 'ApiController@logout')->middleware('auth:api');
 });
