@@ -9,12 +9,14 @@
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::namespace('Api')->prefix('v1')->group(function (){
+
+
+Route::middleware('auth:api')->namespace('Api')->prefix('v1')->group(function (){
     Route::get('/category', 'ProductController@getCategoryData');
     Route::get('/products', 'ProductController@getProductsData');
     Route::get('/product', 'ProductController@index');
     Route::get('/product/{id}', 'ProductController@getProductData');
-    
+
     Route::get('/packages/{id}', 'ProductController@getPackagesData');
 
     Route::resource('/faq', 'FaqController');
@@ -36,6 +38,7 @@ Route::namespace('Api')->prefix('v1')->group(function (){
         'except' => 'create'
     ]);
 });
+
 
 Route::group(
     [

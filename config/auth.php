@@ -41,9 +41,9 @@ return [
         ],
 
         'api' => [
-            'driver' => 'session',
-            'provider' => 'oauth_users',
-            'hash' => false,
+            'driver' => 'token',
+            'provider' => 'staff',
+            'hash' => true,
         ],
 
     ],
@@ -74,6 +74,10 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\OauthUser::class,
 
+        ],
+        'staff' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Staff::class,
         ],
 
         // 'users' => [
