@@ -94,8 +94,6 @@ class ProductsController extends AdminController
         $form->select('online', __('Product online'))->options(['yes' => 'yes', 'no' => 'no']);
         $form->text('hs_code', __('HS code'));
         $form->text('product_slug', __('Product slug'));
-
-        // https://learnku.com/docs/laravel/6.x/collections/5161
         // $grouped = Category::all('id', 'category_name')->mapWithKeys(function ($item, $key){
         //     return [$item['id'] => $item['category_name']];
         // })->all();
@@ -112,7 +110,7 @@ class ProductsController extends AdminController
             $form->text('product_package_length', 'Package length');
             $form->text('product_package_width', 'Package width');
             $form->text('product_package_height', 'Package height');
-            $form->number('product_package_item_num', 'Package item num');
+            $form->text('product_package_item_num', 'Package item num');
             $form->text('product_package_cbm', 'Package cbm');
             $form->text('product_package_net_weight', 'Net weight');
             $form->text('product_package_gross_weight', 'Gross weight');
