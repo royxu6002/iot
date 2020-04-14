@@ -1,6 +1,7 @@
 <?php
 // email direct marketing
-Route::get('edm/1', 'EmailController@index');
+Route::get('edm/france', 'EmailController@index');
+// test view renderong result
 Route::get('mailable', function() {
     return new App\Mail\AppBathroomScale;
 });

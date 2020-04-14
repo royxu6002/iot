@@ -32,7 +32,7 @@ class SendEdm implements ShouldQueue
      */
     public function handle()
     {
-        $to = Customer::where('country', 'like', 'Spain')->orderBy('id', 'asc')->pluck('email');
+        $to = Customer::where('country', 'like', 'France')->orderBy('id', 'asc')->pluck('email');
 
         Mail::to('export@comlibra.com')
             ->bcc($to)
