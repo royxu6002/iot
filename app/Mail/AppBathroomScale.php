@@ -28,6 +28,6 @@ class AppBathroomScale extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.edm.appbathroom');
+        return $this->view('emails.edm.eb8212');
     }
 }

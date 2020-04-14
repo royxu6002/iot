@@ -1,6 +1,9 @@
 <?php
 // email direct marketing
 Route::get('edm/1', 'EmailController@index');
+Route::get('mailable', function() {
+    return new App\Mail\AppBathroomScale;
+});
 
 Route::namespace('Api')->prefix('api/v1')->group(function(){
     Route::post('/login', 'ApiController@login');

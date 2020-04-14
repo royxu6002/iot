@@ -9,12 +9,14 @@
 			"path": "/Users/xb/Code/vue-buy"
 		},
 		{
-			"name": "vue-bold",
-			"path": "/Users/xb/Code/vue-bold"
-		},
-		{
 			"name": "iot",
 			"path": "/Users/xb/Code/iot"
+		},
+		{
+			"path": "/Users/xb/Code/vue-press"
+		},
+		{
+			"path": "/Users/xb/Code/comlibra-work"
 		}
 	]
 }

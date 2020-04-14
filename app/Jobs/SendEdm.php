@@ -9,6 +9,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Mail;
 use App\Mail\AppBathroomScale;
+use App\Models\Customer;
 
 class SendEdm implements ShouldQueue
 {
@@ -31,7 +32,10 @@ class SendEdm implements ShouldQueue
      */
     public function handle()
     {
-        Mail::to('543439279@qq.com')
+        $to = Customer::where('country', 'like', 'Faker')->orderBy('id', 'asc')->pluck('email');
+
+        Mail::to('export@comlibra.com')
+            ->bcc($to)
             ->queue(new AppBathroomScale());
     }
 }
