@@ -15,6 +15,7 @@ Route::namespace('Api')->prefix('v1')->group(function(){
     Route::post('/logout', 'ApiController@logout')->middleware('auth:api');
 });
 
+
 Route::middleware('auth:api')->namespace('Api')->prefix('v1')->group(function (){
     
     Route::get('/category', 'ProductController@getCategoryData');
@@ -42,7 +43,10 @@ Route::middleware('auth:api')->namespace('Api')->prefix('v1')->group(function ()
     Route::resource('shipment', 'ShipmentController',[
         'except' => 'create'
     ]);
+
+    
 });
+
 
 
 Route::group(
@@ -51,5 +55,23 @@ Route::group(
         'namespace' => 'Api',
     ], function() {
         Route::get('test', 'InvoiceController@test');
+        // Route::get('storage_path', function(){
+        //     dd(storage_path('app/public'));
+        // });
+    }
+);
+
+// 暂时不加 token 权限认证
+Route::group(
+    [
+        'prefix' => 'v1',
+        'namespace' => 'Api',
+    ], function() {
+        Route::resource('stock', 'StockController', [
+            'except' => 'create',
+        ]);
+        Route::resource('upload', 'UploadController', [
+            'only' => ['store', 'destroy']
+        ]);
     }
 );
