@@ -9,7 +9,7 @@ use Str;
 
 class UploadController extends Controller
 {
-    protected $allowed_ext = ['jpg', 'jpeg', 'gif', 'bmp']; 
+    protected $allowed_ext = ['jpg', 'jpeg', 'gif', 'bmp', 'png']; 
 
     public function store(Request $request)
     {
