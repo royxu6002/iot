@@ -64,7 +64,7 @@ class StockController extends Controller
         try {
             $stock->update([
                 'number' => $request->number,
-                'chart' => $request->fileList,
+                'chart' => $request->chart,
                 'comment' => $request->comment,
             ]);
 
