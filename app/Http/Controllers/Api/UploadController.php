@@ -13,7 +13,7 @@ class UploadController extends Controller
 
     public function store(Request $request)
     {
-        $extension = strtolower($file->getClientOriginalExtension()) ?: 'png';
+        $extension = strtolower($request->file('image')->getClientOriginalExtension()) ?: 'png';
 
         $filename = time() . '_' . Str::random(6) . '.' .$extension;
 
@@ -26,10 +26,10 @@ class UploadController extends Controller
         // 打印 $request, 看看怎么存储;
         // return $request->file('fileList');
 
-        $path = $request->file('fileList')->storeAs('stock', $filename);
+        $path = $request->file('image')->storeAs('stock', $filename);
         return response()->json([
             'name' => $filename,
-            'url' => $path,
+            'url' => env('APP_URL').'/'.$path,
         ]);
     }
 
