@@ -35,10 +35,24 @@ class UploadController extends Controller
 
     public function destroy($file)
     {
-        Storage::delete($file);
+        // return dd(Storage::exists('stock/'.$file));
+        $exists = Storage::exists('stock/'.$file);
 
-        return response()->json([
-            'msg' => 'file has been deleted',
-        ]);
+        if ($exists) {
+            $delete = Storage::delete('stock/'.$file);
+            if ($delete) {
+                return response()->json([
+                    'msg' => 'file has been deleted',
+                ]);
+            } else {
+                return response()->json([
+                    'msg' => 'failed deleting file',
+                ]);
+            }
+        } else {
+            return response()->json([
+                'msg' => 'file does not exist',
+            ]);
+        }
     }
 }

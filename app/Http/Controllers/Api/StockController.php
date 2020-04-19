@@ -27,6 +27,7 @@ class StockController extends Controller
 
     public function store(Request $request)
     {
+        // return $request;
         DB::beginTransaction();
         try {
             $stock = Stock::create([
