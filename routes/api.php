@@ -66,6 +66,7 @@ Route::group(
     [
         'prefix' => 'v1',
         'namespace' => 'Api',
+        'middleware' => 'auth:api'
     ], function() {
         Route::resource('stock', 'StockController', [
             'except' => 'create',
