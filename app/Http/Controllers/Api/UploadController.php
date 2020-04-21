@@ -13,7 +13,7 @@ class UploadController extends Controller
 
     public function store(Request $request)
     {
-        $extension = strtolower($request->file('image')->getClientOriginalExtension()) ?: 'png';
+        $extension = strtolower($request->file('image')->extension()) ?: 'png';
 
         $filename = time() . '_' . Str::random(6) . '.' .$extension;
 
