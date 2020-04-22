@@ -24,7 +24,7 @@ class UploadController extends Controller
         }
 
         // 打印 $request, 看看怎么存储;
-        // return $request->file('fileList');
+        // return $request->file('image');
 
         $path = $request->file('image')->storeAs('stock', $filename);
         return response()->json([
