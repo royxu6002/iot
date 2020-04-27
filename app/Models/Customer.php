@@ -24,4 +24,9 @@ class Customer extends Model
     {
         return $query->where('is_client', true);
     }
+
+    public function groups()
+    {
+       return $this->belongsToMany(Group::class, 'customer_groups', 'customer_id', 'group_id');
+    }
 }

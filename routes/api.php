@@ -61,7 +61,7 @@ Route::group(
     }
 );
 
-// 暂时不加 token 权限认证
+// 暂时不加 token 权限认证, 方便测试;
 Route::group(
     [
         'prefix' => 'v1',
@@ -76,6 +76,9 @@ Route::group(
         ]);
         Route::resource('file', 'FileController', [
             'only' => ['store', 'destroy']
+        ]);
+        Route::resource('group', 'GroupController', [
+            'except' => ['create', 'edit']
         ]);
     }
 );
