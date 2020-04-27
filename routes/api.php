@@ -66,12 +66,15 @@ Route::group(
     [
         'prefix' => 'v1',
         'namespace' => 'Api',
-        'middleware' => 'auth:api'
+        // 'middleware' => 'auth:api'
     ], function() {
         Route::resource('stock', 'StockController', [
             'except' => 'create',
         ]);
         Route::resource('upload', 'UploadController', [
+            'only' => ['store', 'destroy']
+        ]);
+        Route::resource('file', 'FileController', [
             'only' => ['store', 'destroy']
         ]);
     }
