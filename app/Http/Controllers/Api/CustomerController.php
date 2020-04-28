@@ -155,4 +155,29 @@ class CustomerController extends Controller
             'msg' => 'profile has been deleted',
         ]);
     }
+
+    public function dye(Customer $customer, $id)
+    {
+        if(!is_array($id)) {
+            $nid = compact('id');
+        }
+        if ($customer->groups()->sync($nid, false)) {
+            return response()->json([
+                'msg' => 'customer has been grouped',
+            ]);
+        }
+    }    
+
+    public function bleach(Customer $customer,$id)
+    {
+        if (!is_array($id)) {
+            $nid = compact('id');
+        }
+        if ($customer->groups()->detach($nid)) {
+            return response()->json([
+                'msg' => 'customer group has been removed',
+            ]);
+        }
+    }
+
 }

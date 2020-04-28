@@ -80,5 +80,9 @@ Route::group(
         Route::resource('group', 'GroupController', [
             'except' => ['create', 'edit']
         ]);
+
+        // 客户分类标签, 多对多 sync() 和 detatch();
+        Route::post('customer/{customer}/dye/{id}', 'CustomerController@dye');
+        Route::delete('customer/{customer}/bleach/{id}', 'CustomerController@bleach');
     }
 );
