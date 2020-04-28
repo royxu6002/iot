@@ -66,7 +66,7 @@ Route::group(
     [
         'prefix' => 'v1',
         'namespace' => 'Api',
-        // 'middleware' => 'auth:api'
+        'middleware' => 'auth:api'
     ], function() {
         Route::resource('stock', 'StockController', [
             'except' => 'create',
@@ -81,8 +81,12 @@ Route::group(
             'except' => ['create', 'edit']
         ]);
 
-        // 客户分类标签, 多对多 sync() 和 detatch();
+        // 客户分类标签, 多对多 sync() 和 detach();
         Route::post('customer/{customer}/dye/{id}', 'CustomerController@dye');
         Route::delete('customer/{customer}/bleach/{id}', 'CustomerController@bleach');
+        Route::get('customer/{customer}/groupids', 'CustomerController@getGroupIds');
+
+        // 取到单个分类下的所有客户;
+        Route::get('group/{group}/customers', 'GroupController@getCustomers');
     }
 );

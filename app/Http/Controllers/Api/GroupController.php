@@ -20,8 +20,9 @@ class GroupController extends Controller
 
     public function store(Request $request)
     {
+        
         $result = Group::create([
-            'name' => $request->name,
+            'name' => $request->groupname,
         ]);
         if ($result) {
             return response()->json([
@@ -62,5 +63,10 @@ class GroupController extends Controller
                 'msg' => 'sorry, the information still remains',
             ]);
         }
+    }
+
+    public function getCustomers(Group $group) 
+    {
+        return $group->customers()->get();
     }
 }

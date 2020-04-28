@@ -180,4 +180,11 @@ class CustomerController extends Controller
         }
     }
 
+    public function getGroupIds(Customer $customer)
+    {
+        return $customer->groups()->allRelatedIds()->toArray();
+        // return $customer->groups->pluck('id')->all();
+
+    }
+
 }
