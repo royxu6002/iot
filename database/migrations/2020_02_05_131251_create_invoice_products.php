@@ -17,7 +17,7 @@ class CreateInvoiceProducts extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('product_id');
             $table->unsignedBigInteger('invoice_id');
-            $table->string('hs_code')->nullable();
+            $table->string('currency')->nullable();
             $table->decimal('product_cost');
             $table->integer('product_quantity');
             $table->integer('product_number_per_carton')->nullable();
