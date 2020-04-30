@@ -36,4 +36,9 @@ class Invoice extends Model
         return $this->hasOne(Shipment::class);
     }
 
+    public function purchases()
+    {
+        return $this->hasMany(Purchase::class);
+    }
+
 }

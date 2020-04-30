@@ -58,8 +58,10 @@ class Product extends Model
         return $this->belongsToMany(Invoice::class);
     }
 
-    public function factory()
+    public function suppliers()
     {
-        return $this->belongsTO(Factory::class);
+        return $this->belongsToMany(Supplier::class, 'product_supplier', 'product_id', 'supplier_id')
+                    ->withPivot('price','price_terms')
+                    ->withTimestamps();
     }
 }
