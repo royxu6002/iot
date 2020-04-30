@@ -49,6 +49,7 @@ class ProductsController extends AdminController
         $grid->column('product_name', __('Product name'));
         $grid->column('online', __('online'));
         $grid->column('hs_code', __('HS Code'));
+        $grid->column('tax_refund_rate', __('Tax refund rate'));
         $grid->column('product_slug', __('Product slug'));
         $grid->column('category_id', __('Category id'));
         $grid->column('product_description', __('Product description'))->limit(20);
@@ -74,6 +75,7 @@ class ProductsController extends AdminController
         $show->field('product_name', __('Product name'));
         $show->field('online', __('Online'));
         $show->field('hs_code', __('HS Code'));
+        $show->field('tax_refund_rate', __('Tax refund'));
         $show->field('category_id', __('Category id'));
 
         $show->field('product_description', __('Product description'));
@@ -93,6 +95,7 @@ class ProductsController extends AdminController
         $form->text('product_name', __('Product name'));
         $form->select('online', __('Product online'))->options(['yes' => 'yes', 'no' => 'no']);
         $form->text('hs_code', __('HS code'));
+        $form->text('tax_refund_rate', __('Tax refund rate'));
         $form->text('product_slug', __('Product slug'));
         // $grouped = Category::all('id', 'category_name')->mapWithKeys(function ($item, $key){
         //     return [$item['id'] => $item['category_name']];
@@ -118,7 +121,7 @@ class ProductsController extends AdminController
         $form->hasMany('skus', 'Sku', function (Form\NestedForm $form) {
             $form->text('title',    'Product sku title');
             $form->text('color', 'Product color');
-            $form->text('price', 'Product price')->rules('numbe');
+            $form->text('price', 'Product price');
             $form->multipleImage('image', 'Product image')->sortable()->removable()->uniqueName()->move('/images');
         });
         
