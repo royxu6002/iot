@@ -91,9 +91,66 @@ class InvoiceController extends Controller
     }
 
 
-    public function test($id)
+    public function purchasesIndex(Invoice $invoice)
     {
-        $product = Product::find($id);
-        return $product->factory()->get();
+    
+        // 拿到供应商 id 集合;
+        $collection = $invoice->products()
+            ->with('suppliers')
+            // eloquent 集合
+            ->get()
+            // 大多数 Eloquent 集合方法会返回新的 Eloquent 集合实例，但是 pluck, keys, zip, collapse, flatten 和 flip 方法除外，它们会返回一个 集合基类 实例。同样，如果 map 操作返回的集合不包括任何 Eloquent 模型，那么它会被自动转换成集合基类。
+            ->map(function ($item) {
+                return $item['suppliers'];
+            })
+            // 多层嵌套数据去掉外衣 [];
+            ->flatten();
+
+        return $collection->all();
+    }
+
+    public function purchasesStore(Invoice $invoice, Request $request)
+    {
+        DB::beginTransaction();
+        try {
+            
+            // $content = [];
+            // foreach($request->all() as $item) {
+            //     $content[] = [
+            //         'invoice_id' => $invoice,
+            //         'product_id' => $item['product_id'],
+            //         'supplier_id' => $item['supplier_id'],
+            //         'price' => $item['price'],
+            //         'price_term' => $item['price_term'],
+            //         'quantity' => $item['quantity'],
+            //         'custom_requirement' => $item['custom_requirement'],
+            //         'other_requirement' => $item['other_requirement'],
+            //     ];    
+            // }
+            // return $request->formWrap;
+
+            $collection = collect(json_decode($request->formWrap, true))->transform(function($item) {
+                return [
+                    'product_id' => $item['product_id'],
+                    'supplier_id' => $item['supplier_id'],
+                    'price' => $item['price'],
+                    'price_term' => $item['price_term'],
+                    'quantity' => $item['quantity'],
+                    'custom_requirement' => $item['custom_requirement'],
+                    'other_requirement' => isset($item['other_requirement']) ?$item['other_requirement']:'',
+                ];
+            });
+
+            $invoice->purchases()->createMany($collection);
+
+            DB::commit();
+
+            return response()->json([
+                'msg' => 'purchase order have been created successfully!',
+            ]);
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return $e;
+        }
     }
 }

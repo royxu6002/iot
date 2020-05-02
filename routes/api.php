@@ -32,41 +32,17 @@ Route::middleware('auth:api')->namespace('Api')->prefix('v1')->group(function ()
     ]);
     Route::get('client', 'CustomerController@client');
 
-    Route::resource('invoice', 'InvoiceController');
-
-    // 专门建立一个API接口, 拿到完整的模型
-    Route::get('invoices/{invoice}', 'InvoiceController@getInvoiceData');
-
-    Route::resource('transaction', 'TransactionController', [
-        'except' => 'create'
-    ]);
-    Route::resource('shipment', 'ShipmentController',[
-        'except' => 'create'
-    ]);
+    
 
     
 });
-
-
-
-Route::group(
-    [
-        'prefix' => 'v1',
-        'namespace' => 'Api',
-    ], function() {
-        Route::get('test', 'InvoiceController@test');
-        // Route::get('storage_path', function(){
-        //     dd(storage_path('app/public'));
-        // });
-    }
-);
 
 // 暂时不加 token 权限认证, 方便测试;
 Route::group(
     [
         'prefix' => 'v1',
         'namespace' => 'Api',
-        'middleware' => 'auth:api'
+        // 'middleware' => 'auth:api'
     ], function() {
         Route::resource('stock', 'StockController', [
             'except' => 'create',
@@ -88,5 +64,22 @@ Route::group(
 
         // 取到单个分类下的所有客户;
         Route::get('group/{group}/customers', 'GroupController@getCustomers');
+
+        // 拿到 invoice 下所有 purchase 订单数据;
+        Route::get('invoice/{invoice}/purchase/index', 'InvoiceController@purchasesIndex');
+        // 创建 invoice 下多个 purchase 订单;
+        Route::post('invoice/{invoice}/purchases', 'InvoiceController@purchasesStore');
+
+        Route::resource('invoice', 'InvoiceController');
+
+        // 专门建立一个API接口, 拿到完整的模型
+        Route::get('invoices/{invoice}', 'InvoiceController@getInvoiceData');
+
+        Route::resource('transaction', 'TransactionController', [
+            'except' => 'create'
+        ]);
+        Route::resource('shipment', 'ShipmentController',[
+            'except' => 'create'
+        ]);
     }
 );
