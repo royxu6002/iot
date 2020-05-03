@@ -15,7 +15,7 @@ class SupplierController extends Controller
      */
     public function index()
     {
-        //
+        return Supplier::all();
     }
 
     /**

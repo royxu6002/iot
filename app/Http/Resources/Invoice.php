@@ -28,6 +28,7 @@ class Invoice extends JsonResource
             'payment_term' => $this->payment_term,
             'products' => $this->products()->with('suppliers')->get(),
             'discount' => $this->invoice_discount,
+            'purchase_info' => $this->purchases()->get(),
             'shipment_cost' => $this->invoice_shipment_cost,
             'shipment' => $this->shipment()->with('status')->get(),
             'total' => $this->invoice_total,
