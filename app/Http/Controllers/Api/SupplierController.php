@@ -36,7 +36,19 @@ class SupplierController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->except('alternative_contact');
+        // json 字段存储;
+        $data['alternative_contact'] = json_encode($request->alternative_contact);
+        $create = Supplier::create($data);
+        if($create) {
+            return response()->json([
+                'msg' => 'Supplier profile has been created',
+            ]);
+        } else {
+            return response()->json([
+                'msg' => 'profile failed creating',
+            ]);
+        }
     }
 
     /**
@@ -47,7 +59,7 @@ class SupplierController extends Controller
      */
     public function show(Supplier $supplier)
     {
-        //
+        return $supplier;
     }
 
     /**
@@ -70,7 +82,19 @@ class SupplierController extends Controller
      */
     public function update(Request $request, Supplier $supplier)
     {
-        //
+        $data = $request->except('alternative_contact');
+        // json 字段存储;
+        $data['alternative_contact'] = json_encode($request->alternative_contact);
+        $update = $supplier->update($data);
+        if($update) {
+            return response()->json([
+                'msg' => 'Supplier profile has been updated',
+            ]);
+        } else {
+            return response()->json([
+                'msg' => 'profile failed update',
+            ]);
+        }
     }
 
     /**
@@ -82,5 +106,49 @@ class SupplierController extends Controller
     public function destroy(Supplier $supplier)
     {
         //
+    }
+
+    public function selectId(Supplier $supplier)
+    {
+        return $supplier->products()
+            ->get()
+            ->pluck('id')
+            ->unique()
+            ->all();
+    }
+
+    public function dye(Supplier $supplier, Request $request)
+    {
+        $column = [
+            'price_term' => $request->price_term,
+            'price' => $request->price,
+        ];
+        
+        $attached = $supplier->products()->sync([$request->product_id=>$column], false);
+
+        if ($attached) {
+            return response()->json([
+                'msg' => 'The supplier now owns the goods producing right',
+            ]);
+        } else {
+            return response()->json([
+                'msg' => 'sorry, ',
+            ]);
+        }
+    }
+
+    public function bleach(Supplier $supplier, $id)
+    {
+        $detach = $supplier->products()->detach($id);
+
+        if($detach) {
+            return response()->json([
+                'msg' => 'Products has been bleached',
+            ]);
+        } else {
+            return response()->json([
+                'msg' => 'sorry, operation failed',
+            ]);
+        }
     }
 }

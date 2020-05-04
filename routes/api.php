@@ -18,10 +18,7 @@ Route::namespace('Api')->prefix('v1')->group(function(){
 
 Route::middleware('auth:api')->namespace('Api')->prefix('v1')->group(function (){
     
-    Route::get('/category', 'ProductController@getCategoryData');
-    Route::get('/products', 'ProductController@getProductsData');
-    Route::get('/product', 'ProductController@index');
-    Route::get('/product/{id}', 'ProductController@getProductData');
+    
 
     Route::get('/packages/{id}', 'ProductController@getPackagesData');
 
@@ -38,8 +35,13 @@ Route::group(
     [
         'prefix' => 'v1',
         'namespace' => 'Api',
-        // 'middleware' => 'auth:api'
+        'middleware' => 'auth:api'
     ], function() {
+        Route::get('/category', 'ProductController@getCategoryData');
+        Route::get('/products', 'ProductController@getProductsData');
+        Route::get('/product', 'ProductController@index');
+        Route::get('/product/{id}', 'ProductController@getProductData');
+
         Route::resource('stock', 'StockController', [
             'except' => 'create',
         ]);
@@ -73,6 +75,13 @@ Route::group(
 
         Route::resource('invoice', 'InvoiceController');
         Route::resource('supplier', 'SupplierController');
+
+        // Supplier 和 Product 模型关系
+        Route::post('supplier/{supplier}/dye', 'SupplierController@dye');
+        Route::delete('supplier/{supplier}/bleach/{id}', 'SupplierController@bleach');
+
+        // 拿到 supplier product_id
+        Route::get('supplier/{supplier}/productids', 'SupplierController@selectId');
 
         // 专门建立一个API接口, 拿到完整的模型
         Route::get('invoices/{invoice}', 'InvoiceController@getInvoiceData');
