@@ -19,10 +19,12 @@ class Product extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->product_name,
+            'refund_rate' => $this->tax_refund_rate,
             'description' => $this->product_description,
             'images' => $this->images,
             'skus' => $this->skus,
             'packages' => $this->packages,
+            'suppliers' => $this->suppliers,
         ];
     }
 }
