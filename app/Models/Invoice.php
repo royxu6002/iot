@@ -17,6 +17,7 @@ class Invoice extends Model
     {
         return $this->belongsToMany(Product::class)
             ->withPivot('currency',
+            'product_custom',
             'product_cost',
             'product_quantity',
             'product_number_per_carton',

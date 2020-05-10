@@ -35,7 +35,7 @@ Route::group(
     [
         'prefix' => 'v1',
         'namespace' => 'Api',
-        'middleware' => 'auth:api'
+        // 'middleware' => 'auth:api'
     ], function() {
         Route::get('/category', 'ProductController@getCategoryData');
         Route::get('/products', 'ProductController@getProductsData');
