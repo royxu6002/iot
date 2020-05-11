@@ -129,9 +129,9 @@
     <div class="row">
       <div class="col">
         <ul class="d-flex flex-wrap justify-content-center list-unstyled">
-          <li class="mx-4 mb-5 aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+          <!-- <li class="mx-4 mb-5 aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
             <img src="{{asset('images/go-clever.png')}}" alt="" height="36" viewBox="0 0 201 36" fill="none" class="injected-svg icon icon-logo icon-md opacity-55">
-          </li>
+          </li> -->
           <li class="mx-4 mb-5 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
             <img src="{{asset('images/xbilitz.png')}}" alt="" height="36" viewBox="0 0 141 36" fill="red" class="injected-svg icon icon-logo icon-md opacity-55">
           </li>
