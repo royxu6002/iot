@@ -74,6 +74,10 @@ Route::group(
         // Route::get('invoice/{invoice}/supplier/{supplier}/purchases', 'InvoiceController@getOneSupplierPurchases');
 
         Route::resource('invoice', 'InvoiceController');
+
+        // 复制 Invoice 模型(包含产品)
+        Route::get('invoice/{invoice}/duplicate', 'InvoiceController@duplicate');
+
         Route::resource('supplier', 'SupplierController');
 
         // Supplier 和 Product 模型关系

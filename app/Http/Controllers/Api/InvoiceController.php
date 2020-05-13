@@ -91,6 +91,75 @@ class InvoiceController extends Controller
 
     }
 
+    // 复制 Invoice 
+    public function duplicate(Invoice $invoice) 
+    {
+        DB::beginTransaction();
+        
+        try {
+            $new = Invoice::create([
+                'type' => $invoice->type,
+                'invoice_issued_date' => $invoice->invoice_issued_date,
+                'invoice_due_date' => $invoice->invoice_due_date,
+                'client_id' => $invoice->client_id,
+                'ship_from' => $invoice->ship_from,
+                'ship_to' => $invoice->ship_to,
+                'deadline' => $invoice->deadline,
+                'price_term' => $invoice->price_term,
+                'payment_term' => $invoice->payment_term,
+                'invoice_discount' => $invoice->invoice_discount,
+                'invoice_shipment_cost' => $invoice->invoice_shipment_cost,
+                'invoice_total' => $invoice->invoice_total,
+                'currency_type' => $invoice->currency_type,
+            ]);
+
+            // $array = [
+            //     "1" => [
+            //         "currency" => "EU€",
+            //         "product_custom" => "customized 1",
+            //         "product_cost" =>  "1.50",
+            //         "product_quantity" => 24,
+            //         "product_number_per_carton" => 24,
+            //         "shipping_mark" => "SA. kitchen scale /NW|GW",
+            //         "cartons" => "1.00",
+            //         "cbm" => "0.12",
+            //         "net_weight" => "12.00",
+            //         "gross_weight" => "14.00"
+            //     ],
+            //     "3" => [
+            //         "currency" => "EU€",
+            //         "product_custom" =>"customized 2",
+            //         "product_cost" => "5.85",
+            //         "product_quantity" => 1000,
+            //         "product_number_per_carton" => 10,
+            //         "shipping_mark" =>null,
+            //         "cartons" => "100.00",
+            //         "cbm"=> "6.00",
+            //         "net_weight"=> "1600.00",
+            //         "gross_weight"=> "1800.00"
+            //     ]
+            //     ];
+            // $new->products()->attach($array);
+
+
+            $products = collect($invoice->products()->get())->pluck('order_info')->keyBy('product_id')->map(function($value, $key) {
+                unset($value['id'],$value['product_id'],$value['invoice_id'], $value['created_at'], $value['updated_at']);
+                // 此处必须 toArray(),否则不能添加;
+                return $value->toArray();
+            });
+
+            $new->products()->attach($products->all());
+
+            DB::commit();
+
+            return response()->json([
+                'msg' => 'duplicate successfully',
+            ]);
+        } catch(\Exception $e) {
+            DB::rollBack();
+        }
+    }
+
 
     public function getUniqueIds(Invoice $invoice)
     {
