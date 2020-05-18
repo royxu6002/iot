@@ -215,7 +215,7 @@ class InvoiceController extends Controller
                     'price_term' => $item['price_term'],
                     'quantity' => $item['quantity'],
                     'custom_requirement' => $item['custom_requirement'],
-                    'other_requirement' => json_encode($item['other_requirement']),
+                    'other_requirement' => $item['other_requirement'],
                 ];
             });
             // return count($collection);
