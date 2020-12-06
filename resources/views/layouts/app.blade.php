@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title', 'Comlibra Electronic - smart weighing scales, digital weighing scales, smart scales from China')</title>
+    <title>@yield('title', 'Comlibra Electronic - weighing scale, weight scale, Bluetooth scale, Bluetooth weighing scale, smart weighing scales, digital weighing scales, smart scales from China')</title>
     <link rel="stylesheet" href="{{ asset('css/theme-mobile-app.min.css') }}">
     @yield('styles')
 </head>
@@ -25,7 +25,7 @@
         (function() {
         var hm = document.createElement("script");
         hm.src = "https://hm.baidu.com/hm.js?b5b1a710f055c5afd3217cf6a92962c6";
-        var s = document.getElementsByTagName("script")[0]; 
+        var s = document.getElementsByTagName("script")[0];
         s.parentNode.insertBefore(hm, s);
         })();
     </script>
