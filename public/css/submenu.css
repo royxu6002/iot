@@ -1,0 +1,13 @@
+.widget-list-link {
+    display: block;
+    transition: color 0.25s ease-in-out;
+    color: #4b566b;
+    font-size: .875rem;
+    font-weight: normal;
+}
+.widget-list-item {
+    margin-bottom: .375rem;
+}
+.widget-list {
+    list-style: none;
+}
