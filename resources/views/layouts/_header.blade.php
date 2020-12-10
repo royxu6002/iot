@@ -22,8 +22,9 @@
                             <ul class="dropdown-menu show">
                                 <li class="dropdown mega-dropdown">
                                     <a class="dropdown-item dropdown-toggle" href="#" data-toggle="dropdown">
-                                    <i class="czi-laptop opacity-60 font-size-lg mt-n1 mr-2"></i>
-                                        Weighing Scale</a>
+                                        <img src="{{asset('/images/scale.svg')}}" alt="" width="18">
+                                        Weighing Scale
+                                    </a>
                                       <div class="dropdown-menu p-0">
                                         {{-- column-left --}}
                                         <div class="d-flex flex-wrap flex-md-nowrap px-2">
@@ -92,7 +93,7 @@
                                             </a>
                                             <div class="font-size-sm mb-3">Connected Bathroom Scale
                                             </div>
-                                            <a class="btn btn-primary btn-shadow btn-sm" href="{{asset('products/eb8104-connected-bathroom-scale')}}">View<i class="czi-arrow-right font-size-xs ml-1"></i>
+                                            <a class="btn btn-primary btn-shadow btn-sm" href="{{asset('products/eb8104-connected-bathroom-scale')}}">View
                                             </a>
                                           </div>
                                         </div>
