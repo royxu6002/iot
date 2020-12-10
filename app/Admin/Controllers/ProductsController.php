@@ -100,8 +100,11 @@ class ProductsController extends AdminController
         // $grouped = Category::all('id', 'category_name')->mapWithKeys(function ($item, $key){
         //     return [$item['id'] => $item['category_name']];
         // })->all();
+
+        // 第二种方案
         $grouped = Category::query()->pluck('category_name', 'id')->all();
         $form->select('category_id',  __('Product Category'))->options($grouped);
+
         $form->textarea('product_brief_intro', __('Product brief intro'));
         $form->ckeditor('product_description','Product description');
         $form->multipleImage('imgs', 'Images')->sortable()->removable()->uniqueName()->move('/images');
@@ -124,7 +127,7 @@ class ProductsController extends AdminController
             $form->text('price', 'Product price');
             $form->multipleImage('image', 'Product image')->sortable()->removable()->uniqueName()->move('/images');
         });
-        
+
 
         return $form;
     }

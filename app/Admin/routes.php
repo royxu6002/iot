@@ -14,6 +14,7 @@ Route::group([
     $router->get('/clients', 'UserController@index');
     $router->resource('/products', 'ProductsController');
     $router->resource('/categories', 'CategoriesController');
+    $router->get('/api/categories', 'CategoriesController@apiIndex');
     $router->resource('/blogs', 'BlogsController');
     $router->resource('/tags', 'TagsController');
     $router->resource('/comment', 'CommentController');
