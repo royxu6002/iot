@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light">
           <div class="container">
             <a href="{{ route('root') }}" class="navbar-brand ml-3">
-                <img src="{{asset('images/logo.svg')}}" width="144">
+                <img src="{{asset('images/logo.svg')}}" width="98">
             </a>
 
             <div class="d-flex">
