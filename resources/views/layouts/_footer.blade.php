@@ -1,17 +1,42 @@
-    <footer class=" bg-primary-alt">
+    <footer class="bg-dark pt-5">
       <div class="container">
-        <div class="row justify-content-between">
-          <div class="col d-flex flex-column align-items-center align-items-md-start">
-            <small class="text-muted mt-2 d-none d-lg-block">© Copyright 2019 Comlibra Electronic Co., LTD.</small>
+        <div class="row pb-2">
+          <div class="col-md-4 col-sm-6">
+            <div class="widget widget-links widget-light pb-2 mb-4">
+              <h3 class="widget-title text-light">Products</h3>
+              <ul class="widget-list">
+                @if(isset($category))
+                        @foreach($category as $key=>$category_name)
+                            <li class="widget-list-item">
+                                <a class="widget-list-link" href="{{ asset('/category/'.$category_name->category_slug) }}">
+                                    {{ $category_name->category_name }}
+                                </a>
+                            </li>
+                        @endforeach
+                @endif
+              </ul>
+            </div>
           </div>
-          <div class="col-lg-5 col-md-6 mt-3 mt-lg-0">
-            @if(session()->has('subscribe-response'))
-                {{ session('subscribe-response') }}
-            @else
+          <div class="col-md-4 col-sm-6">
+            <div class="widget widget-links widget-light pb-2 mb-4">
+              <h3 class="widget-title text-light">About us</h3>
+              <ul class="widget-list">
+                <li class="widget-list-item"><a class="widget-list-link" href="{{  route('about') }}">Company</a></li>
+                <li class="widget-list-item"><a class="widget-list-link" href="{{ route('contact') }}">Contact</a></li>
+                <li class="widget-list-item"><a class="widget-list-link" href="{{ route('blogs.index') }}">Blog</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="widget pb-2 mb-4">
+              <h3 class="widget-title text-light pb-1">Stay informed</h3>
+                @if(session()->has('subscribe-response'))
+                    {{ session('subscribe-response') }}
+                @else
                 <form action="{{ route('subscribe.store') }}" method="post">
                     @csrf
                   <div class="form-row flex-column flex-md-row">
-                    <div class="col">
+                    <div class="col-12">
                       <input type="email" class="form-control mb-2 @error('email') is-invalid @enderror" placeholder="Email Address" name="email" required="">
                       @error('email')
                         <div class="invalid-feedback">
@@ -27,11 +52,19 @@
                     </div>
                   </div>
                 </form>
-                <small class="text-muted form-text">We’ll never share your details.</small>
+                <small class="text-muted form-text">*Subscribe to our newsletter to receive early discount offers, updates and new products info.</small>
             @endif
+          </div>
+
+            </div>
+
           </div>
         </div>
       </div>
+      <div class="container">
+          <hr class="hr-light pb-4 mb-3">
+          <div class="pb-4 font-size-xs text-light opacity-50 text-center text-md-left">© Copyright 2020 Comlibra Electronic Co., LTD.</div>
+        </div>
     </footer>
 
 {{-- back-to-top archor --}}

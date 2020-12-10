@@ -9,16 +9,11 @@
             <p class="leap mt-3">
               Provides you with a detailed body weight and BMI including graphical statistics on your body weight improvements. When connecting your body weight scale, the App will receive data sent from scale and continuously record on your App.
             </p>
-            <div class="d-flex justify-content-center my-2 my-md-4">
-              <a href="https://apps.apple.com/us/app/okok-international/id1028294311" class="btn btn-md btn-primary mx-sm-2 mb-3 mb-sm-0 mr-3">
-                <img src="{{asset('images/apple.svg')}}" alt="" class="injected-svg icon">
-                <span>App Store</span>
-              </a>
-              <a href="https://play.google.com/store/apps/details?id=com.chipsea.btcontrol.en&hl=en" class="btn btn-md btn-primary mx-sm-2 mb-3 mb-sm-0">
-                <img src="{{asset('images/google.svg')}}" alt="" class="injected-svg icon">
-                <span>Google Play</span>
-              </a>
-            </div>
+
+            <div class="d-flex flex-wrap justify-content-center my-2 my-md-4">
+                <div class="mr-2 mb-2"><a class="btn-market btn-apple" href="https://apps.apple.com/cn/app/okok-international/id1028294311?l=en" role="button"><span class="btn-market-subtitle">Download on the</span><span class="btn-market-title">App Store</span></a></div>
+                <div class="mb-2"><a class="btn-market btn-google" href="https://play.google.com/store/apps/details?id=com.chipsea.btcontrol.en&hl=en" role="button"><span class="btn-market-subtitle">Download on the</span><span class="btn-market-title">Google Play</span></a></div>
+              </div>
           </div>
 
           <div class="col-lg-6 mt-5">

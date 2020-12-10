@@ -6,7 +6,7 @@ use App\Models\Category;
 
 class CategoryComposer
 {
-    protected $category;
+    protected $category, $product;
 
     public function __construct(Category $category)
     {
@@ -16,7 +16,6 @@ class CategoryComposer
     public function compose(View $view)
     {
         $category = $this->category->where('online', 'yes')->get();
-        
         $view->with('category', $category);
     }
 }

@@ -27,7 +27,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
-        View::composer('layouts._header', '\App\Http\ViewComposers\CategoryComposer');
+        View::composer('layouts._footer', '\App\Http\ViewComposers\CategoryComposer');
         Resource::withoutWrapping();
     }
 
