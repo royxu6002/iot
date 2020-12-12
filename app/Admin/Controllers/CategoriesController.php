@@ -42,6 +42,7 @@ class CategoriesController extends AdminController
             return $value ? 'Yes' : 'No';
         });
         $grid->column('path', 'Path');
+        $grid->column('order_num', 'Order number');
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
 
@@ -62,6 +63,7 @@ class CategoriesController extends AdminController
         $show->field('category_name', __('Category name'));
         $show->field('online', __('online'));
         $show->field('category_slug', __('Category slug'));
+        $show->field('order_num', __('Order numer'));
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
 
@@ -77,6 +79,7 @@ class CategoriesController extends AdminController
     {
         $form = new Form(new Category);
         $form->text('category_name', __('Category name'));
+        $form->text('order_num', __('Order number'));
         $form->text('category_slug', __('Category slug'));
         $form->select('online')->options(['yes'=> 'yes', 'no'=> 'no']);
         $form->radio('is_directory', 'Is directory')
