@@ -22,7 +22,6 @@
                             <ul class="dropdown-menu show">
                                 <li class="dropdown mega-dropdown">
                                     <a class="dropdown-item dropdown-toggle" href="#" data-toggle="dropdown">
-                                        <img src="{{asset('/images/scale.svg')}}" alt="" width="18">
                                         Weighing Scale
                                     </a>
                                       <div class="dropdown-menu p-0">
