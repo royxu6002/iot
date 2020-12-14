@@ -55,13 +55,13 @@
                                               <h6 class="font-size-base mb-3">Accessories</h6>
                                               <ul class="widget-list">
                                                 <li class="widget-list-item pb-1">
-                                                    <a class="widget-list-link" href="#">Load Cell</a>
+                                                    <a class="widget-list-link" href="{{asset('/category/load-cell')}}">Load Cell</a>
                                                 </li>
                                                 <li class="widget-list-item pb-1">
-                                                    <a class="widget-list-link" href="#">Lead-acid Battery</a>
+                                                    <a class="widget-list-link" href="{{asset('category/battery-for-scale')}}">Battery</a>
                                                 </li>
                                                 <li class="widget-list-item pb-1">
-                                                    <a class="widget-list-link" href="#">Support Frame</a>
+                                                    <a class="widget-list-link" href="{{asset('category/other-accessories')}}">Others</a>
                                                 </li>
                                               </ul>
                                             </div>
