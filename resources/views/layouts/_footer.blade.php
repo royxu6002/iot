@@ -54,6 +54,20 @@
                 </form>
                 <small class="text-muted form-text">*Subscribe to our newsletter to receive early discount offers, updates and new products info.</small>
             @endif
+            <div class="mt-4">
+                <div class="">
+                <a class="social-btn sb-light sb-twitter ml-2" href="https://www.facebook.com/roy.xu.3572">
+                    <img src="{{asset('/images/facebook.svg')}}" alt="">
+                </a>
+                <a class="social-btn sb-light sb-twitter ml-2" href="https://twitter.com/Royxu16">
+                    <img src="{{asset('/images/twitter.svg')}}" alt="">
+                </a>
+                <a class="social-btn sb-light sb-twitter ml-2" href="https://www.pinterest.com/comlibra">
+                    <img src="{{asset('/images/pinterest.svg')}}" alt="">
+                </a>
+              </div>
+            </div>
+
           </div>
 
             </div>
@@ -61,9 +75,17 @@
           </div>
         </div>
       </div>
+
       <div class="container">
-          <hr class="hr-light pb-4 mb-3">
-          <div class="pb-4 font-size-xs text-light opacity-50 text-center text-md-left">© Copyright 2020 Comlibra Electronic Co., LTD.</div>
+        <hr class="hr-light pb-4 mb-3">
+        <div class="row pb-2">
+            <div class="col-md-6 text-center text-md-left mb-4">
+              <div class="text-nowrap mb-4">
+                <div class="pb-4 font-size-sm text-light opacity-50 text-center text-md-left">© Copyright 2020 Comlibra Electronic Co., LTD.
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
     </footer>
 
