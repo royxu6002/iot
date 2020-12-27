@@ -38,6 +38,9 @@
                                                     <a class="widget-list-link" href="{{ asset('/category/'.'bathroom-scale') }}">Bathroom Scale</a>
                                                 </li>
                                                 <li class="widget-list-item pb-1">
+                                                    <a class="widget-list-link" href="{{ asset('/category/'.'person-height-scale') }}">Person Height Scale</a>
+                                                </li>
+                                                <li class="widget-list-item pb-1">
                                                     <a class="widget-list-link" href="{{ asset('/category/'.'kitchen-scale') }}">Kitchen Scale</a>
                                                 </li>
                                                 <li class="widget-list-item pb-1">
@@ -51,23 +54,9 @@
                                           </div>
                                         {{-- column-middle --}}
                                           <div class="mega-dropdown-column py-4 px-3">
-                                            <div class="widget widget-links">
-                                              <h6 class="font-size-base mb-3">Accessories</h6>
-                                              <ul class="widget-list">
-                                                <li class="widget-list-item pb-1">
-                                                    <a class="widget-list-link" href="{{asset('/category/load-cell')}}">Load Cell</a>
-                                                </li>
-                                                <li class="widget-list-item pb-1">
-                                                    <a class="widget-list-link" href="{{asset('category/battery-for-scale')}}">Battery</a>
-                                                </li>
-                                                <li class="widget-list-item pb-1">
-                                                    <a class="widget-list-link" href="{{asset('category/other-accessories')}}">Others</a>
-                                                </li>
-                                              </ul>
-                                            </div>
-                                            <div class="widget widget-links mt-3">
 
-                                            <h6 class="font-size-base">Price & Weight Scale</h6>
+                                            <div class="widget widget-links">
+                                                <h6 class="font-size-base">Price & Industrial Scale</h6>
                                                 <ul class="widget-list">
                                                 <li class="widget-list-item pb-1">
                                                     <a class="widget-list-link" href="{{ asset('/category/tabletop-price-scale') }}">Tabletop Price Scale
@@ -81,9 +70,36 @@
                                                     <a class="widget-list-link" href="{{ asset('/category/floor-scale') }}">Floor Scale
                                                     </a>
                                                 </li>
+                                                <li class="widget-list-item pb-1">
+                                                    <a class="widget-list-link" href="{{ asset('/category/hanging-scale') }}">Hanging Scale
+                                                    </a>
+                                                </li>
+                                                <li class="widget-list-item pb-1">
+                                                    <a class="widget-list-link" href="{{ asset('/category/roller-conveyor-scale') }}">Roller Conveyor Scale
+                                                    </a>
+                                                </li>
+                                                <li class="widget-list-item pb-1">
+                                                    <a class="widget-list-link" href="{{ asset('/category/crane-scale') }}">Crane Scale
+                                                    </a>
+                                                </li>
 
                                                 </ul>
                                             </div>
+                                            <div class="widget widget-links mt-3">
+                                              <h6 class="font-size-base mb-3">Accessories</h6>
+                                              <ul class="widget-list">
+                                                <li class="widget-list-item pb-1">
+                                                    <a class="widget-list-link" href="{{asset('/category/load-cell')}}">Load Cell</a>
+                                                </li>
+                                                <li class="widget-list-item pb-1">
+                                                    <a class="widget-list-link" href="{{asset('category/battery-for-scale')}}">Battery</a>
+                                                </li>
+                                                <li class="widget-list-item pb-1">
+                                                    <a class="widget-list-link" href="{{asset('category/other-accessories')}}">Others</a>
+                                                </li>
+                                              </ul>
+                                            </div>
+
                                           </div>
                                         {{-- column-right, recommend products --}}
                                           <div class="mega-dropdown-column d-none d-lg-block py-4 text-center">
