@@ -81,7 +81,7 @@
         <div class="row pb-2">
             <div class="col-md-6 text-center text-md-left mb-4">
               <div class="text-nowrap mb-4">
-                <div class="pb-4 font-size-sm text-light opacity-50 text-center text-md-left">© Copyright 2020 Comlibra Electronic Co., LTD.
+                <div class="pb-4 font-size-sm text-light opacity-50 text-center text-md-left">© Copyright 2021 Comlibra Electronic Co., LTD.
                 </div>
               </div>
             </div>
