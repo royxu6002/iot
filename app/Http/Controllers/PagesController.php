@@ -25,4 +25,8 @@ class PagesController extends Controller
     {
         return view('pages.price');
     }
+    public function policy()
+    {
+        return view('pages.policy');
+    }
 }

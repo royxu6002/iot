@@ -7,6 +7,7 @@ Route::get('mailable', function() {
 });
 
 Route::get('price', 'PagesController@price');
+Route::get('policy', 'PagesController@policy');
 
 // Route::namespace('Api')->prefix('api/v1')->group(function(){
 //     Route::post('/login', 'ApiController@login');
