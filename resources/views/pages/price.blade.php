@@ -8,11 +8,12 @@
 
 @section('content')
 <div id="app" class="container">
-    <div>
+    <div class="price-header">
         <h4 class="ml-2 mt-4">Stock Items' Price List</h4>
-        <div>OEM POLICY</div>
+        <span class="small">
+            <a href="{{asset('/policy')}}">ODM/OEM Policy</a>
+        </span>
     </div>
-
     <table  class="table">
         <thead >
             <tr >

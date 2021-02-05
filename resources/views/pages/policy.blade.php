@@ -8,6 +8,7 @@
         <div class="row">
           <div class="col">
             <h2>ODM/OEM Policy</h2>
+
             <p>For the purpose of offering better ODM/OEM service, making things more precise and more scalable, below policy will be carried out as a guide through ODM/OEM work:<p>
             <p>If a client would like to have his own brand stenciled on products, color boxes, rating labels, packages, there will be a requirement for minimum quanity.<br>
                 <ul>
