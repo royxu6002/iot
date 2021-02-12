@@ -20,4 +20,5 @@ Route::group([
     $router->resource('/comment', 'CommentController');
     $router->resource('/subscribe', 'SubscribeController');
     $router->resource('/enquiry', 'EnquiryController');
+    $router->resource('stock-products', 'StockProductController');
 });

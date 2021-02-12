@@ -13,7 +13,7 @@ class Product extends Model
     protected $casts = [
         'imgs' => 'json',
     ];
-    
+
     public function setImgsAttribute($image)
     {
         if (is_array($image)) {
@@ -28,7 +28,7 @@ class Product extends Model
     {
         return json_decode($image, true);
     }
-    
+
 
     public function category()
     {
@@ -47,7 +47,7 @@ class Product extends Model
     {
         return $this->hasMany(ProductSku::class);
     }
-    
+
     public function packages()
     {
         return $this->hasMany(ProductPackage::class);
@@ -64,5 +64,10 @@ class Product extends Model
                     ->withPivot('price','price_term')
                     ->as('purchase_info')
                     ->withTimestamps();
+    }
+
+    public function stocks()
+    {
+        return $this->hasMany(StockProduct::class);
     }
 }

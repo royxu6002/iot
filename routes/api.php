@@ -17,8 +17,8 @@ Route::namespace('Api')->prefix('v1')->group(function(){
 
 
 Route::middleware('auth:api')->namespace('Api')->prefix('v1')->group(function (){
-    
-    
+
+
 
     Route::get('/packages/{id}', 'ProductController@getPackagesData');
 
@@ -27,7 +27,7 @@ Route::middleware('auth:api')->namespace('Api')->prefix('v1')->group(function ()
     Route::resource('/customer', 'CustomerController',[
         'except' => ['create']
     ]);
-    Route::get('client', 'CustomerController@client');    
+    Route::get('client', 'CustomerController@client');
 });
 
 // 暂时不加 token 权限认证, 方便测试;
@@ -42,6 +42,10 @@ Route::group(
         Route::get('/product', 'ProductController@index');
         Route::get('/product/{id}', 'ProductController@getProductData');
 
+        //拿到所有产品的库存数据;
+        Route::get('/products/stocks', 'ProductController@getStocksData');
+
+        //股票数据
         Route::resource('stock', 'StockController', [
             'except' => 'create',
         ]);
@@ -70,7 +74,7 @@ Route::group(
         Route::post('invoice/{invoice}/purchases', 'InvoiceController@purchasesStore');
         Route::put('invoice/{invoice}/purchases', 'InvoiceController@purchasesUpdate');
         // Route::get('invoice/{invoice}/purchases/suppliers/{supplier}', 'InvoiceController@purchasesShow');
-        
+
         // Route::get('invoice/{invoice}/supplier/{supplier}/purchases', 'InvoiceController@getOneSupplierPurchases');
 
         Route::resource('invoice', 'InvoiceController');

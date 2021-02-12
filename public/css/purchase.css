@@ -7,3 +7,7 @@
     justify-content: space-around;
     align-items: center;
 }
+.price-header select{
+    border: none !important;
+    font-size: 18px;
+}

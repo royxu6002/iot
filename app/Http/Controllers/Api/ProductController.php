@@ -18,9 +18,9 @@ class ProductController extends Controller
 
     public function getProductsData()
     {
-        return Product::with('skus')->with('images')->get();
+        return Product::with('skus')->with('images')->with('stocks')->get();
     }
-    
+
     public function getProductData($id)
     {
         return Product::where('id', $id)->with('skus')->get();
@@ -40,6 +40,13 @@ class ProductController extends Controller
     {
         return new ProductResource(Product::find($id));
     }
-    
-    
+
+    // 拿到所有产品的库存数据;
+    public function getStocksData()
+    {
+        return Product::with('stocks')->get();
+    }
+
+
+
 }

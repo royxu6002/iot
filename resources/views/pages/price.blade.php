@@ -9,68 +9,72 @@
 @section('content')
 <div id="app" class="container">
     <div class="price-header">
-        <h4 class="ml-2 mt-4">Stock Items' Price List</h4>
+        <h4 class="ml-2 mt-4">Price List</h4>
+        <select name="" id="" v-model="catId">Please Select A Catalogue
+            <option value="">All</option>
+            <option value="1">Connected Bathroom Scale</option>
+            <option value="2">Bathroom Scale</option>
+            <option value="3">Kitchen Scale</option>
+            <option value="4">Luggage Scale</option>
+            <option value="5">Pocket Scale</option>
+            <option value="6">Tabletop Price Scale</option>
+            <option value="7">Pocket Scale</option>
+            <option value="8">Hanging Scale</option>
+            <option value="15">Floor Scale</option>
+            <option value="25">Conveyor Scale</option>
+            <option value="22">Load Cell</option>
+            <option value="26">Height Scale</option>
+            <option value="16">Other Accessories</option>
+            <option value="16">Timer</option>
+        </select>
+
         <span class="small">
             <a href="{{asset('/policy')}}">ODM/OEM Policy</a>
         </span>
     </div>
-    <table  class="table">
-        <thead >
-            <tr >
-                <th>IMAGE</th>
-                <th class="text-center">ARTICLE</th>
-                <th class="text-center">UNIT PRICE</th>
-                <th class="text-center">OEM MOQ</th>
-                <th class="text-center hide-on-mobile">IN STOCK</th>
-                <th class="text-center hide-on-mobile">REMARK</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody >
-                <!----><!---->
-            <tr class="ng-star-inserted open">
-                <td  class="hide-on-mobile">
-                    <img src="http://comlibra.com/images/22e1ed919672e5ba7c27f3440292f77f.jpg" alt="" class="price-img">
-                </td>
-                <td >
-                    <a href="http://comlibra.com/products/cf470bt-connected-fat-scale">CT470BT Connected Fat Scale</a>
-                </td>
-                <td  class="text-center" vertical-align="middle">
-                    6.00USD
-                </td>
-                <td class="text-center">1000PCS</td>
-                <td class="text-center">3268PCS</td>
-                <td  class="text-center">Black Color
-                </td>
-            </tr>
-                <!---->
-          {{--   <tr class="collapsed open ng-star-inserted">
-                <td  colspan="6">
-                    <a href="http://www.federalreserve.gov/aboutthefed/bios/banks/pres08.htm" target="_blank">James Bullard</a> is the President of the <a href="http://www.stlouisfed.org/" target="_blank">Federal Reserve Bank of St. Louis</a>. Dr. Bullard took office on April 1, 2008, as the twelfth chief executive of the Eighth District Federal Reserve Bank, at St. Louis. He is currently serving a full term that began March 1, 2011. In 2013, he serves as a voting member of the Federal Open Market Committee.
-                </td>
-            </tr> --}}
 
+    <div class="row price-detail">
+            <table  class="table">
+                    <thead >
+                        <tr >
+                            <th>IMAGE</th>
+                            <th class="text-center">ARTICLE</th>
+                            <th class="text-center">UNIT PRICE</th>
+                            <th class="text-center">OEM MOQ</th>
+                            <th class="text-center hide-on-mobile">IN STOCK</th>
+                            <th class="text-center hide-on-mobile">REMARK</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody >
+                        <!----><!---->
+                    <tr class="ng-star-inserted open" v-for="(p, indx) in filteredProductsData()" :key="indx">
+                        <td  class="hide-on-mobile">
+                            <img :src="p.imgs[0]" alt="" class="price-img">
+                        </td>
+                        <td >
+                            <a :href="'/products/'+p.product_slug" class="">
+                                @{{ p.product_name }}
+                            </a>
+                        </td>
+                        <td  class="text-center" vertical-align="middle">
+                            @{{p.stocks[0].price}}USD
+                        </td>
+                        <td class="text-center">
+                            @{{p.stocks[0].moq}}PCS
+                        </td>
+                        <td class="text-center">
+                            @{{p.stocks[0].quantity}}PCS
+                        </td>
+                        <td  class="text-center">
+                            @{{p.stocks[0].note}}
+                        </td>
+                    </tr>
 
-            <tr  class="ng-star-inserted">
-                <td >
-                    <img src="http://comlibra.com/images/8d86deb0a73e76f0d1e0e3bab0e80aff.jpg" alt="" class="price-img">
-                </td>
-                <td>
-                    <a href="http://comlibra.com/products/cf570bt-connected-fat-scale">
-                        CK570BT Connected Fat Scale
-                    </a>
-                </td>
-                <td  class="text-center gray" vertical-align="middle">
-                    6.50USD
-                </td>
-                <td class="text-center">1000PCS</td>
-                <td class="text-center">1021PCS</td>
-                <td  class="text-center">Black color
-                </td>
-            </tr>
-    <!----><!----><!----><!---->
-    </tbody>
-    </table>
+            <!----><!----><!----><!---->
+                </tbody>
+            </table>
+    </div>
 </div>
 @endsection
 
@@ -79,9 +83,32 @@
     var vm = new Vue({
         el: '#app',
         data: {
-            test: 10000,
+            productsData: '',
+            catId: ''
         },
-
+        methods: {
+            getProductStocksData() {
+               window.axios.get('/api/v1/products/stocks')
+                .then(res => this.productsData = res.data)
+                .catch(err => alert(err))
+            }
+        },
+        computed: {
+            filteredProductsData() {
+                if(this.catId == '') {
+                    return () => {
+                        return this.productsData.filter(z => z.stocks.length>0)
+                    };
+                }
+                return () => {
+                    return this.productsData.filter(x => x.category_id == this.catId).filter(
+                        y => y.stocks.length > 0);
+                }
+            }
+        },
+        created() {
+            this.getProductStocksData();
+        }
     });
 </script>
 @endsection
