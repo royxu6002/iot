@@ -40,7 +40,7 @@
                             <th>IMAGE</th>
                             <th class="text-center">ARTICLE</th>
                             <th class="text-center">UNIT PRICE</th>
-                            <th class="text-center">OEM MOQ</th>
+                            {{-- <th class="text-center">OEM MOQ</th> --}}
                             <th class="text-center hide-on-mobile">IN STOCK</th>
                             <th class="text-center hide-on-mobile">REMARK</th>
                             <th></th>
@@ -60,9 +60,9 @@
                         <td  class="text-center" vertical-align="middle">
                             @{{p.stocks[0].price}}USD
                         </td>
-                        <td class="text-center">
+                        {{-- <td class="text-center">
                             @{{p.stocks[0].moq}}PCS
-                        </td>
+                        </td> --}}
                         <td class="text-center">
                             @{{p.stocks[0].quantity}}PCS
                         </td>
