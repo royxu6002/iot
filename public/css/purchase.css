@@ -11,3 +11,6 @@
     border: none !important;
     font-size: 18px;
 }
+[v-cloak] {
+  display: none;
+}

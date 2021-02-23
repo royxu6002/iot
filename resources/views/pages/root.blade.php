@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <section class="pb-0 pt-3 pt-lg-6" style="background-color: rgba(11,196,131,0.79);transition: background 0.3s,border 0.3s, border-radius 0.3s, box-shadow 0.3s;padding: 0px 0px 30px 0px;">
       <div class="container">
         <div class="row align-items-center justify-content-between p-3">

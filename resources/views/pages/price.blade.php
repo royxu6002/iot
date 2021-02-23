@@ -7,7 +7,7 @@
 @endsection
 
 @section('content')
-<div id="app" class="container">
+<div id="app" class="container" v-cloak>
     <div class="price-header">
         <h4 class="ml-2 mt-4">Price List</h4>
         <select name="" id="" v-model="catId">Please Select A Catalogue
