@@ -44,9 +44,6 @@ class ProductController extends Controller
     // 拿到所有产品的库存数据;
     public function getStocksData()
     {
-        return Product::whereHas('stocks')->with('stocks')->get();
+        return Product::has('stocks')->with('stocks')->get();
     }
-
-
-
 }
