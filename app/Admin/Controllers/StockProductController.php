@@ -8,6 +8,7 @@ use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
+use Encore\Admin\Widgets\Table;
 
 class StockProductController extends AdminController
 {
@@ -28,7 +29,12 @@ class StockProductController extends AdminController
         $grid = new Grid(new StockProduct);
 
         $grid->column('id', __('Id'));
-        $grid->column('product_id', __('Product id'));
+        $grid->column('product_id', __('Product id'))->modal('Product Name', function($model){
+            $products = $model->product()->get()->map(function($product) {
+                return $product->only('id','product_name');
+            });
+            return new Table(['ID', 'Product Name'], $products->toArray());
+        });
         $grid->column('moq', __('Moq'));
         $grid->column('quantity', __('Quantity'));
         $grid->column('price', __('Price'));
@@ -48,9 +54,8 @@ class StockProductController extends AdminController
     protected function detail($id)
     {
         $show = new Show(StockProduct::findOrFail($id));
-
         $show->field('id', __('Id'));
-        $show->field('product_id', __('Product id'));
+        $show->field('product_id', __('Product id'));   
         $show->field('moq', __('Moq'));
         $show->field('quantity', __('Quantity'));
         $show->field('price', __('Price'));

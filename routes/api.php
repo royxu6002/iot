@@ -1,41 +1,24 @@
 <?php
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
 // api-token 认证
 Route::namespace('Api')->prefix('v1')->group(function(){
     Route::post('/login', 'ApiController@login');
     Route::post('/logout', 'ApiController@logout')->middleware('auth:api');
 });
 
-
 Route::middleware('auth:api')->namespace('Api')->prefix('v1')->group(function (){
-
-
-
     Route::get('/packages/{id}', 'ProductController@getPackagesData');
-
     Route::resource('/faq', 'FaqController');
-
     Route::resource('/customer', 'CustomerController',[
         'except' => ['create']
     ]);
     Route::get('client', 'CustomerController@client');
 });
 
-// 暂时不加 token 权限认证, 方便测试;
 Route::group(
     [
         'prefix' => 'v1',
         'namespace' => 'Api',
-        // 'middleware' => 'auth:api'
+        'middleware' => 'auth:api'
     ], function() {
         Route::get('/category', 'ProductController@getCategoryData');
         Route::get('/products', 'ProductController@getProductsData');
@@ -74,7 +57,6 @@ Route::group(
         Route::post('invoice/{invoice}/purchases', 'InvoiceController@purchasesStore');
         Route::put('invoice/{invoice}/purchases', 'InvoiceController@purchasesUpdate');
         // Route::get('invoice/{invoice}/purchases/suppliers/{supplier}', 'InvoiceController@purchasesShow');
-
         // Route::get('invoice/{invoice}/supplier/{supplier}/purchases', 'InvoiceController@getOneSupplierPurchases');
 
         Route::resource('invoice', 'InvoiceController');

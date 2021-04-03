@@ -40,6 +40,7 @@ return [
             'provider' => 'users',
         ],
 
+        // online.comlibra.com 配置的内部员工登陆系统;
         'api' => [
             'driver' => 'token',
             'provider' => 'staff',
