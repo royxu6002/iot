@@ -40,14 +40,13 @@
                             <th>IMAGE</th>
                             <th class="text-center">ARTICLE</th>
                             <th class="text-center">UNIT PRICE</th>
-                            {{-- <th class="text-center">OEM MOQ</th> --}}
+                            <th class="text-center">OEM MOQ</th>
                             <th class="text-center hide-on-mobile">IN STOCK</th>
                             <th class="text-center hide-on-mobile">REMARK</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody >
-                        <!----><!---->
                     <tr class="ng-star-inserted open" v-for="(p, indx) in filteredProductsData()" :key="indx">
                         <td  class="hide-on-mobile">
                             <img :src="p.imgs[0]" alt="" class="price-img">
@@ -60,18 +59,20 @@
                         <td  class="text-center" vertical-align="middle">
                             @{{p.stocks[0].price}}USD
                         </td>
-                        {{-- <td class="text-center">
+                        <td class="text-center">
                             @{{p.stocks[0].moq}}PCS
-                        </td> --}}
+                        </td>
                         <td class="text-center">
                             @{{p.stocks[0].quantity}}PCS
+                            <p style="font-size:3px">Updated at: @{{p.stocks[0].updated_at}}</p>
+
                         </td>
                         <td  class="text-center">
                             @{{p.stocks[0].note}}
                         </td>
                     </tr>
 
-            <!----><!----><!----><!---->
+
                 </tbody>
             </table>
     </div>

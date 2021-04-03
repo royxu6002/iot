@@ -3,6 +3,8 @@
 Route::namespace('Api')->prefix('v1')->group(function(){
     Route::post('/login', 'ApiController@login');
     Route::post('/logout', 'ApiController@logout')->middleware('auth:api');
+    //拿到所有产品的库存数据;
+    Route::get('/products/stocks', 'ProductController@getStocksData');
 });
 
 Route::middleware('auth:api')->namespace('Api')->prefix('v1')->group(function (){
@@ -24,9 +26,6 @@ Route::group(
         Route::get('/products', 'ProductController@getProductsData');
         Route::get('/product', 'ProductController@index');
         Route::get('/product/{id}', 'ProductController@getProductData');
-
-        //拿到所有产品的库存数据;
-        Route::get('/products/stocks', 'ProductController@getStocksData');
 
         //股票数据
         Route::resource('stock', 'StockController', [

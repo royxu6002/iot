@@ -29,12 +29,13 @@ class StockProductController extends AdminController
         $grid = new Grid(new StockProduct);
 
         $grid->column('id', __('Id'));
-        $grid->column('product_id', __('Product id'))->modal('Product Name', function($model){
-            $products = $model->product()->get()->map(function($product) {
-                return $product->only('id','product_name');
-            });
-            return new Table(['ID', 'Product Name'], $products->toArray());
-        });
+        // $grid->column('product_id', __('Product id'))->modal('Product Name', function($model){
+        //     $products = $model->product()->get()->map(function($product) {
+        //         return $product->only('id','product_name');
+        //     });
+        //     return new Table(['ID', 'Product Name'], $products->toArray());
+        // });
+        $grid->column('product.product_name', __('Name'));
         $grid->column('moq', __('Moq'));
         $grid->column('quantity', __('Quantity'));
         $grid->column('price', __('Price'));
