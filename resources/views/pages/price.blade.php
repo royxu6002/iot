@@ -78,7 +78,7 @@
     var vm = new Vue({
         el: '#app',
         data: {
-            productsData: '',
+            productsData: [],
             catId: ''
         },
         methods: {
@@ -92,7 +92,7 @@
             filteredProductsData() {
                 if(this.catId == '') {
                     return () => {
-                        return this.productsData.sort((a,b)=>Date.parse(b.updated_at) - Date.parse(a.updated_at));
+                        return this.productsData;
                     };
                 }
                 return () => {
@@ -100,7 +100,7 @@
                 }
             }
         },
-        created() {
+        beforeMount() {
             this.getProductStocksData();
         }
     });
