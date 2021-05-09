@@ -18,7 +18,7 @@
             <option value="4">Luggage Scale</option>
             <option value="5">Pocket Scale</option>
             <option value="6">Tabletop Price Scale</option>
-            <option value="7">Pocket Scale</option>
+            <option value="7">Platform Scale</option>
             <option value="8">Hanging Scale</option>
             <option value="15">Floor Scale</option>
             <option value="25">Conveyor Scale</option>
@@ -33,17 +33,15 @@
         </span>
     </div>
 
-    <div class="row price-detail">
+    <div class="price-detail">
             <table  class="table">
                     <thead >
                         <tr >
                             <th>IMAGE</th>
                             <th class="text-center">ARTICLE</th>
                             <th class="text-center">UNIT PRICE</th>
-                            <th class="text-center">OEM MOQ</th>
                             <th class="text-center hide-on-mobile">IN STOCK</th>
                             <th class="text-center hide-on-mobile">REMARK</th>
-                            <th></th>
                         </tr>
                     </thead>
                     <tbody >
@@ -60,12 +58,8 @@
                             @{{p.stocks[0].price}}USD
                         </td>
                         <td class="text-center">
-                            @{{p.stocks[0].moq}}PCS
-                        </td>
-                        <td class="text-center">
                             @{{p.stocks[0].quantity}}PCS
-                            <p style="font-size:3px">Updated at: @{{p.stocks[0].updated_at}}</p>
-
+                            <p style="font-size:3px">until @{{p.stocks[0].updated_at}}</p>
                         </td>
                         <td  class="text-center">
                             @{{p.stocks[0].note}}
@@ -98,12 +92,11 @@
             filteredProductsData() {
                 if(this.catId == '') {
                     return () => {
-                        return this.productsData.filter(z => z.stocks.length>0)
+                        return this.productsData.sort((a,b)=>Date.parse(b.updated_at) - Date.parse(a.updated_at));
                     };
                 }
                 return () => {
-                    return this.productsData.filter(x => x.category_id == this.catId).filter(
-                        y => y.stocks.length > 0);
+                    return this.productsData.filter(x => x.category_id == this.catId);
                 }
             }
         },
