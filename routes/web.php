@@ -38,4 +38,4 @@ Route::resource('faq', 'FaqController');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-
+Route::get('finance', 'FinanceController@index')->name('finance.index');
