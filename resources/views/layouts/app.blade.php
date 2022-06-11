@@ -23,6 +23,11 @@
     <script src="{{ asset('js/theme.js') }}"></script>
     <script src="{{ asset('js/index.js') }}"></script>
     <script>
+    $(function() {
+        $("[data-toggle='popover']").popover();
+    });
+</script>
+    <script>
         var _hmt = _hmt || [];
         (function() {
         var hm = document.createElement("script");

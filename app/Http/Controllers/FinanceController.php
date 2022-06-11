@@ -9,4 +9,11 @@ class FinanceController extends Controller
     public function index()  {
         return view('finance.index');
     }
+    
+    public function pattern()  {
+        return view('finance.pattern');
+    }
+    public function breakthrough()  {
+        return view('finance.breakthrough');
+    }
 }

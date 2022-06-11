@@ -39,3 +39,5 @@ Route::resource('faq', 'FaqController');
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('finance', 'FinanceController@index')->name('finance.index');
+Route::get('finance/pattern', 'FinanceController@pattern')->name('finance.pattern');
+Route::get('finance/breakthrough', 'FinanceController@breakthrough')->name('finance.breakthrough');
