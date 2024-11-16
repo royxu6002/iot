@@ -18,12 +18,18 @@ class Product extends Model
     {
         if (is_array($image)) {
             $images = collect($image)->transform(function($item, $key){
-                return $item = env('APP_URL').'/'.$item;
+                return $item = $item;
             })->toArray();
             $this->attributes['imgs'] = json_encode($images);
         }
+        
 
     }
+    // public function setImagesAttribute($value)
+    // {
+    //     $this->attributes['images'] = json_encode(array_values($value));
+    // }
+
     public function getImgsAttribute($image)
     {
         return json_decode($image, true);
