@@ -123,7 +123,7 @@
             </div>
             <div class="mb-3">
               <h6 class="mb-1">Email</h6>
-              <a href="mailto:info@comlibra.com">info@comlibra.com</a>
+              <a href="mailto:info@comlibra.com">info@comlibra.cn</a>
             </div>
           </div>
         </div>
